@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Reset from './UI/Globalstyle';
 import { Route, Routes, BrowserRouter} from 'react-router-dom';
 import Login from './components/pages/Login';
-import Home from './components/pages/Home';
+import Home from './components/pages/Home/styled';
 
 function Router() {
   const [count, setCount] = useState(0)
