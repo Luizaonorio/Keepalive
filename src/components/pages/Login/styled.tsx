@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import logoC from "../../../assets/Logo-Compasso.png";
 import logoNote from "../../../assets/notebook.png";
-import { textColor } from "../../../UI/variaveis";
+import { textColor, white } from "../../../UI/variaveis";
 
-export const Container = styled.section`
+const Container = styled.section`
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -13,12 +13,12 @@ export const Container = styled.section`
     overflow: hidden;
 `;
 
-export const LoginContainer = styled.div`
+const LoginContainer = styled.div`
     width: 50vw;
     height: 100vh;
 `;
 
-export const LoginContent = styled.div`
+const LoginContent = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -26,43 +26,42 @@ export const LoginContent = styled.div`
     margin: 18.3vh 13.4vw 18.2vh 14.9vw ;
 `
 
-export const StyleH1 = styled.h1`
+const StyleH1 = styled.h1`
     font-size: 3.12vw;
     color: ${textColor};
     font-weight: 400;
 `
 
-export const StyleP = styled.p`
+const StyleP = styled.p`
     font-size: 0.8vw;
     color: ${textColor};
     font-weight: 100;
     padding: 1.6vh 5.2vw 12.5vh 0;
 `
 
-export const InputF = styled.div`
+const InputF = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
 `
 
-export const Input = styled.input`
+const Input = styled.input`
     width: 90.6%;
     height: 5.7vh;
     margin-top: 3vh;
-    border-color: rgb(255 255 255);
-    border: 1px solid #FFF;
+    border: 1px solid #FFFFFF;
     background: #26292C;
     border-radius: 50px;
     padding: 20px;
     color: ${textColor};
 `;
 
-export const TextLabel = styled.label`
+const TextLabel = styled.label`
     font-weight: 300;
     font-size: 30px;
 `;
 
-export const Btn = styled.button`
+const Btn = styled.button`
     margin-top: 10.7vh;
     width: 90.6%;
     height: 6.2vh;
@@ -72,7 +71,7 @@ export const Btn = styled.button`
     border-radius: 50px;
 `;
 
-export const LogoContainer = styled.div`
+const LogoContainer = styled.div`
     width: 50vw;
     height: 100vh;
     background-image: url(${logoNote});
@@ -80,13 +79,12 @@ export const LogoContainer = styled.div`
     background-size: cover;
 `;
 
-export const LogoCompass = styled.img`
+const LogoCompass = styled.img`
     margin: 3.2vh 17vw;
     width: 15.9vw;
     image: url(${logoC});
     z-index: 3;
 `;
-
 
 
 const Login = () => {
@@ -96,9 +94,10 @@ const Login = () => {
             <LoginContent>
                 <StyleH1>Olá,</StyleH1>
                 <StyleP>Para continuar navegando de forma segura, efetue o login na rede.</StyleP>
-                <><TextLabel>Login</TextLabel><InputF>
-                    <Input type="text" placeholder="Usúarios"></Input>
-                    <Input type="password" placeholder="Senha"></Input>
+                <><TextLabel>Login</TextLabel>
+                 <InputF>
+                    <Input type="text" placeholder="Usúarios"/>
+                    <Input type="password" placeholder="Senha"/>
                  </InputF></>
                  <Btn>Continuar</Btn>
             </LoginContent>
@@ -106,7 +105,6 @@ const Login = () => {
         <LogoContainer>
             <LogoCompass src={logoC} alt="Logo Compass.Oul"/>
         </LogoContainer>
-        
       </Container>
     );
   };
