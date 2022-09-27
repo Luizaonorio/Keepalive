@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import LogoCompassOul from "../../../assets/LogoCompassoBlack.png";
 import { darkTextColor, redTextColor, textColor, white } from "../../../UI/variaveis";
 import TextHome from "../../TextHome/index";
 import bolaLogoCompasso from "../../../assets/bola-LogoCompasso.png"
 import LogoWeather from "../../../assets/previsao.svg";
+import { useNavigate } from "react-router-dom";
 
  export const ConteinerHome = styled.section`
   display: flex;
@@ -195,6 +196,38 @@ const TextPrincipal = [
  
 const Home = () => {
 
+  
+interface Props {
+  fresh: number;
+}
+
+    function Countdown({ fresh }: Props) {
+    const [counter, setCounter] = useState(fresh);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        counter >= 1 ? setTimeout(() => setCounter(counter - 1), 1000) : navigate("/");
+    }, [counter]);
+
+    return (
+      <ParagraphNumber>
+            {counter}
+      </ParagraphNumber>
+    );
+}
+
+  // const hours = 
+  // const minutes = 
+  // const dayWeek =
+  // const day = 
+  // const month = 
+  // const year = 
+
+  // return { 
+
+  // }
+
+
   return (
     <ConteinerHome>
       <PatterHeader>
@@ -232,7 +265,7 @@ const Home = () => {
         <Line/>
         <TextRefresh>Application <br/>refresh in</TextRefresh>
         <Seconds>
-          <ParagraphNumber>66</ParagraphNumber>
+          <ParagraphNumber> <Countdown fresh = {60}/></ParagraphNumber>
           <ParagraphSeconds>Seconds</ParagraphSeconds>
         </Seconds>
         <Btn>Continuar Navegando</Btn>
