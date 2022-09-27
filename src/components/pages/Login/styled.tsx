@@ -135,7 +135,8 @@ const Login = () => {
             setError(false);
             navigate('/home')
         } else { setError(true);
-                
+            
+            
         }
     }
 
@@ -148,13 +149,13 @@ const Login = () => {
                 <><TextLabel>Login</TextLabel>
                  <InputF onSubmit={Valid}>
                     <InputDiv>
-                        <Input onChange={event => setEmail(event.target.value)} 
+                        <Input style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={event => setEmail(event.target.value)} 
                         type="text" 
                         placeholder="Usúarios"/>
                         <Icone src={iconP} alt="Logo Compass.Oul"/>
                     </InputDiv>
                     <InputDiv>
-                        <Input onChange={event => setPassword(event.target.value)} 
+                        <Input style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={event => setPassword(event.target.value)} 
                         type="password" 
                         placeholder="Senha"/>
                         <Icone src={iconC} alt="Logo Compass.Oul"/>
