@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import logoC from "../../../assets/Logo-Compasso.png";
 import logoNote from "../../../assets/notebook.png";
-import { textColor, white } from "../../../UI/variaveis";
+import { errorColor, textColor, white } from "../../../UI/variaveis";
+import iconP from "../../../assets/icone-perfil.svg";
+import { useNavigate } from "react-router-dom";
+import iconC from "../../../assets/icone-senha.svg";
 
 const Container = styled.section`
     display: flex;
@@ -28,7 +31,7 @@ const LoginContent = styled.div`
 
 const StyleH1 = styled.h1`
     font-size: 3.12vw;
-    color: ${textColor};
+    color: #FFFFFF;
     font-weight: 400;
 `
 
@@ -39,10 +42,17 @@ const StyleP = styled.p`
     padding: 1.6vh 5.2vw 12.5vh 0;
 `
 
-const InputF = styled.div`
+const InputF = styled.form`
     display: flex;
     flex-direction: column;
     width: 100%;
+`
+
+const InputDiv = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `
 
 const Input = styled.input`
@@ -56,10 +66,32 @@ const Input = styled.input`
     color: ${textColor};
 `;
 
+const Icone = styled.img`
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 3vh;
+    margin: 2.7vh 0 0 20.5vw;
+`
+
 const TextLabel = styled.label`
     font-weight: 300;
     font-size: 30px;
+    color: #FFFFFF;
 `;
+
+const InvalidText = styled.div`
+    margin: 2.5vh 0 0 2.3vw;
+    display: flex;
+    width: 14.7vw;
+    margin-bottom: -6vh;
+`
+
+const InvalidP = styled.p`
+    text-align: center;
+    color: ${errorColor};
+    font-size: 0.8vw;
+`
 
 const Btn = styled.button`
     margin-top: 10.7vh;
@@ -69,6 +101,7 @@ const Btn = styled.button`
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 50px;
+    color: #FFFFFF;
 `;
 
 const LogoContainer = styled.div`
@@ -88,6 +121,24 @@ const LogoCompass = styled.img`
 
 
 const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState<boolean>(false);
+    const navigate = useNavigate()
+
+    function Valid(e: any) {
+        e.preventDefault();
+
+        let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
+        if (emailRegex.test(email) && password.length > 3) {
+            setError(false);
+            navigate('/home')
+        } else { setError(true);
+                
+        }
+    }
+
     return (
       <Container>
         <LoginContainer>
@@ -95,11 +146,23 @@ const Login = () => {
                 <StyleH1>Olá,</StyleH1>
                 <StyleP>Para continuar navegando de forma segura, efetue o login na rede.</StyleP>
                 <><TextLabel>Login</TextLabel>
-                 <InputF>
-                    <Input type="text" placeholder="Usúarios"/>
-                    <Input type="password" placeholder="Senha"/>
+                 <InputF onSubmit={Valid}>
+                    <InputDiv>
+                        <Input onChange={event => setEmail(event.target.value)} 
+                        type="text" 
+                        placeholder="Usúarios"/>
+                        <Icone src={iconP} alt="Logo Compass.Oul"/>
+                    </InputDiv>
+                    <InputDiv>
+                        <Input onChange={event => setPassword(event.target.value)} 
+                        type="password" 
+                        placeholder="Senha"/>
+                        <Icone src={iconC} alt="Logo Compass.Oul"/>
+                    </InputDiv>
+
+                    { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
+                    <Btn>Continuar</Btn>
                  </InputF></>
-                 <Btn>Continuar</Btn>
             </LoginContent>
         </LoginContainer>
         <LogoContainer>
