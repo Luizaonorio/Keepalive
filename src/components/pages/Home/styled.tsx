@@ -262,7 +262,7 @@ function Refresh() {
         <Paragraph>Passo Fundo - RS</Paragraph>
         <DivWeader>
           <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
-          <TemperatureNumber>22.</TemperatureNumber>
+          <TemperatureNumber>22º</TemperatureNumber>
         </DivWeader>
         </Temperature>
       </PatterHeader>

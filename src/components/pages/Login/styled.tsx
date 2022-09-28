@@ -72,7 +72,8 @@ const Icone = styled.img`
     width: 20px;
     height: 20px;
     margin-top: 3vh;
-    margin: 2.7vh 0 0 20.5vw;
+    transition: 1s;
+    margin-left: ${ ({saindo}) => saindo ? "17vw" : "20.5vw"}
 `
 
 const TextLabel = styled.label`
@@ -145,18 +146,6 @@ const Login = () => {
         }
     }
 
-    function checkFocus() {
-
-        if (document.activeElement === passwordref.current) { setFocus({...focus, password: true}) }
-        if (document.activeElement === usernameref.current) { setFocus({...focus, username: true}) }
-
-        setPassword(passwordref.current.value);
-        setEmail(usernameref.current.value);
-        
-        if (passwordref.current.value === "" ) {setFocus({ ...focus, password: false})}
-        if (usernameref.current.value === "" ) {setFocus({ ...focus, username: false})}
-    }
-
     return (
       <Container>
         <LoginContainer>
@@ -166,16 +155,16 @@ const Login = () => {
                 <><TextLabel>Login</TextLabel>
                  <InputF onSubmit={Valid}>
                     <InputDiv>
-                        <Input ref={usernameref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={()=> checkFocus()}
+                        <Input onChange= {event =>setEmail(event.target.value)} ref={usernameref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} 
                         type="text" 
                         placeholder="Usúarios"/>
-                        <Icone style={{marginLeft: `${focus.username ? "17.5vw" : "20.5vw"}`}} src={iconP} alt="Logo Compass.Oul"/>
+                        <Icone saindo={email} src={iconP} alt="Logo Compass.Oul"/>
                     </InputDiv>
                     <InputDiv>
-                        <Input ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={()=> checkFocus()} 
+                        <Input onChange= {event =>setPassword(event.target.value)} ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}}  
                         type="password" 
                         placeholder="Senha"/>
-                        <Icone style={{marginLeft: `${focus.password ? "17.5vw" : "20.5vw"}`}} src={iconC} alt="Logo Compass.Oul"/>
+                        <Icone saindo={password} src={iconC} alt="Logo Compass.Oul"/>
                     </InputDiv>
                     { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
                     <Btn>Continuar</Btn>
