@@ -73,7 +73,7 @@ const Icone = styled.img`
     height: 20px;
     margin-top: 3vh;
     transition: 1s;
-    margin-left: ${ ({saindo}) => saindo ? "17vw" : "20.5vw"}
+    margin-left: ${({saindo}) => saindo ? "17vw" : "20.5vw"}
 `
 
 const TextLabel = styled.label`
@@ -179,3 +179,7 @@ const Login = () => {
   };
   
   export default Login;
+
+function PopUp(): React.MouseEventHandler<HTMLButtonElement> | undefined {
+    throw new Error("Function not implemented.");
+}

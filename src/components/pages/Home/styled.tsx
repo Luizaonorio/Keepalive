@@ -6,6 +6,7 @@ import TextHome from "../../TextHome/index";
 import bolaLogoCompasso from "../../../assets/bola-LogoCompasso.png"
 import LogoWeather from "../../../assets/previsao.svg";
 import { useNavigate } from "react-router-dom";
+import OpenWeatherMap from "openweathermap-ts";
 
  export const ConteinerHome = styled.section`
   display: flex;
@@ -126,10 +127,12 @@ export const Footer = styled.div`
 
 export const Seconds = styled.div`
   margin: 0 19.2vw 0 1.7vw;
+  text-align: center;
   width: 5vw;
 `
 
 const ParagraphNumber = styled.p`
+  // text-align: center;
   font-size: 2.5vw;
 `
 
@@ -167,6 +170,7 @@ export const Btn = styled.button`
   width: 6.8vw;
   border: none;
   color: ${redTextColor};
+  background: white;
 `
 
 export const Btn2 = styled.button`
@@ -197,11 +201,10 @@ const TextPrincipal = [
 ]
  
 const Home = () => {
-
-  
 interface Props {
   fresh: number;
 }
+
 const [counter, setCounter] = useState(60);
 const navigate = useNavigate();
 
@@ -248,6 +251,34 @@ function Refresh() {
 }
 
 
+  const [location, setLocation] = useState({
+    city: "",
+    location: "",
+    climate: 0
+  })
+
+  const openWeather = new OpenWeatherMap({
+    apiKey: '814cc018cf410c22819fac73644379a5'
+  });
+
+  openWeather.setUnits('metric');
+
+  interface param {
+    cityName: string;
+  }
+
+  useEffect(() => {
+    openWeather
+    .getCurrentWeatherByCityName({
+      cityName: 'Florianópolis'
+    })
+    .then((weather) => setLocation({
+      city: weather.name,
+      location: weather.sys.country,
+      climate: weather.main.temp
+    }))
+  } , [])
+
   return (
     <ConteinerHome>
       <PatterHeader>
@@ -259,10 +290,10 @@ function Refresh() {
           <Data>{DataHora().Data}</Data>
         </Clock>
         <Temperature>
-        <Paragraph>Passo Fundo - RS</Paragraph>
+        <Paragraph>{location.city} - {location.location}</Paragraph>
         <DivWeader>
           <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
-          <TemperatureNumber>22º</TemperatureNumber>
+          <TemperatureNumber>{location.climate.toFixed(0)}º</TemperatureNumber>
         </DivWeader>
         </Temperature>
       </PatterHeader>
