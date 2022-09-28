@@ -7,6 +7,8 @@ import bolaLogoCompasso from "../../../assets/bola-LogoCompasso.png"
 import LogoWeather from "../../../assets/previsao.svg";
 import { useNavigate } from "react-router-dom";
 import OpenWeatherMap from "openweathermap-ts";
+import Location from "../../../components/pages/Home/index"
+import Geoloc from "../../../components/pages/Home/index";
 
  export const ConteinerHome = styled.section`
   display: flex;
@@ -64,22 +66,22 @@ export const Temperature = styled.div`
   width: 6.3vw;
 `
 
-const Paragraph = styled.p`
+export const Paragraph = styled.p`
   color: ${darkTextColor};
   font-size: 0.7vw;
 `
-const DivWeader = styled.div`
+export const DivWeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-top: 1.1vh;
 `
 
-const IconWeader = styled.img`
+export const IconWeader = styled.img`
   width: 1.8vw;
 `
 
-const TemperatureNumber = styled.span`
+export const TemperatureNumber = styled.span`
   font-size: 2.5vw;
   font-weight: 700;
 `
@@ -245,39 +247,7 @@ function Refresh() {
     const HourCurrent = `${hours}:${minutes}`;
 
     return { Data: DateCurrent, Hora: HourCurrent}
-    useEffect(() => {
-      setInterval(() => setDateState(new Date()), 1000);
-    });
 }
-
-
-  const [location, setLocation] = useState({
-    city: "",
-    location: "",
-    climate: 0
-  })
-
-  const openWeather = new OpenWeatherMap({
-    apiKey: '814cc018cf410c22819fac73644379a5'
-  });
-
-  openWeather.setUnits('metric');
-
-  interface param {
-    cityName: string;
-  }
-
-  useEffect(() => {
-    openWeather
-    .getCurrentWeatherByCityName({
-      cityName: 'Florianópolis'
-    })
-    .then((weather) => setLocation({
-      city: weather.name,
-      location: weather.sys.country,
-      climate: weather.main.temp
-    }))
-  } , [])
 
   return (
     <ConteinerHome>
@@ -289,13 +259,7 @@ function Refresh() {
           <Time>{DataHora().Hora}</Time>
           <Data>{DataHora().Data}</Data>
         </Clock>
-        <Temperature>
-        <Paragraph>{location.city} - {location.location}</Paragraph>
-        <DivWeader>
-          <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
-          <TemperatureNumber>{location.climate.toFixed(0)}º</TemperatureNumber>
-        </DivWeader>
-        </Temperature>
+        <Location/>
       </PatterHeader>
       <SectionText>
         {/* <BallCompass/> */} 
