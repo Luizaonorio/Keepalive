@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import logoC from "../../../assets/Logo-Compasso.png";
 import logoNote from "../../../assets/notebook.png";
@@ -43,6 +43,7 @@ const StyleP = styled.p`
 `
 
 const InputF = styled.form`
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -125,7 +126,13 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState<boolean>(false);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [focus, setFocus] = useState({
+        username: false,
+        password: false,
+    });
+    const usernameref:any = useRef(null)
+    const passwordref:any = useRef(null)
 
     function Valid(e: any) {
         e.preventDefault();
@@ -138,6 +145,18 @@ const Login = () => {
         }
     }
 
+    function checkFocus() {
+
+        if (document.activeElement === passwordref.current) { setFocus({...focus, password: true}) }
+        if (document.activeElement === usernameref.current) { setFocus({...focus, username: true}) }
+
+        setPassword(passwordref.current.value);
+        setEmail(usernameref.current.value);
+        
+        if (passwordref.current.value === "" ) {setFocus({ ...focus, password: false})}
+        if (usernameref.current.value === "" ) {setFocus({ ...focus, username: false})}
+    }
+
     return (
       <Container>
         <LoginContainer>
@@ -147,16 +166,16 @@ const Login = () => {
                 <><TextLabel>Login</TextLabel>
                  <InputF onSubmit={Valid}>
                     <InputDiv>
-                        <Input style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={event => setEmail(event.target.value)}
+                        <Input ref={usernameref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={()=> checkFocus()}
                         type="text" 
                         placeholder="Usúarios"/>
-                        <Icone src={iconP} alt="Logo Compass.Oul"/>
+                        <Icone style={{marginLeft: `${focus.username ? "17.5vw" : "20.5vw"}`}} src={iconP} alt="Logo Compass.Oul"/>
                     </InputDiv>
                     <InputDiv>
-                        <Input style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={event => setPassword(event.target.value)} 
+                        <Input ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} onChange={()=> checkFocus()} 
                         type="password" 
                         placeholder="Senha"/>
-                        <Icone src={iconC} alt="Logo Compass.Oul"/>
+                        <Icone style={{marginLeft: `${focus.password ? "17.5vw" : "20.5vw"}`}} src={iconC} alt="Logo Compass.Oul"/>
                     </InputDiv>
                     { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
                     <Btn>Continuar</Btn>

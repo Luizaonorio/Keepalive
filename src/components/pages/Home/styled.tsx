@@ -101,10 +101,12 @@ const BallCompass = styled.img`
 `
 
 const LogoCompassBall = styled.img`
-    // position: absolute;
-    margin-top: 100px;
-    width: 30%;
-    heigth: 100%;
+    position: relative;
+    // margin-top: 100px;
+    overflow: hidden;
+    top: 40px;
+    width: 27.9vw;
+    heigth: 60.3vh;
 `
 
 const DivText = styled.span`
@@ -124,7 +126,7 @@ export const Footer = styled.div`
 
 export const Seconds = styled.div`
   margin: 0 19.2vw 0 1.7vw;
-  whidth: 5vw;
+  width: 5vw;
 `
 
 const ParagraphNumber = styled.p`
@@ -200,32 +202,50 @@ const Home = () => {
 interface Props {
   fresh: number;
 }
-
-    function Countdown({ fresh }: Props) {
-    const [counter, setCounter] = useState(fresh);
-    const navigate = useNavigate();
+const [counter, setCounter] = useState(60);
+const navigate = useNavigate();
 
     useEffect(() => {
         counter >= 1 ? setTimeout(() => setCounter(counter - 1), 1000) : navigate("/");
     }, [counter]);
 
+function Refresh() {
     return (
       <ParagraphNumber>
             {counter}
       </ParagraphNumber>
     );
+  }
+
+  enum Days {
+    "domingo" = 0, "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"
+  }
+
+  enum Month {
+    "janeiro"= 0, "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+  }
+
+  function DataHora() {
+  
+  const [dateState, setDateState] = useState(new Date());
+
+  const date = new Date();
+
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const dayWeek = date.getDay()
+    const day =  String(date.getDate()).padStart(2, '0');
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    const DateCurrent = `${Days[dayWeek]}, ${day} de ${Month[month]} de ${year}`;
+    const HourCurrent = `${hours}:${minutes}`;
+
+    return { Data: DateCurrent, Hora: HourCurrent}
+    useEffect(() => {
+      setInterval(() => setDateState(new Date()), 1000);
+    });
 }
-
-  // const hours = 
-  // const minutes = 
-  // const dayWeek =
-  // const day = 
-  // const month = 
-  // const year = 
-
-  // return { 
-
-  // }
 
 
   return (
@@ -235,8 +255,8 @@ interface Props {
           <Logo src={LogoCompassOul} alt="Logo Compass.Oul"/>
         </LogoCompass>
         <Clock>
-          <Time>22:00</Time>
-          <Data>terça-feira, 17 de março de 2020</Data>
+          <Time>{DataHora().Hora}</Time>
+          <Data>{DataHora().Data}</Data>
         </Clock>
         <Temperature>
         <Paragraph>Passo Fundo - RS</Paragraph>
@@ -265,14 +285,19 @@ interface Props {
         <Line/>
         <TextRefresh>Application <br/>refresh in</TextRefresh>
         <Seconds>
-          <ParagraphNumber> <Countdown fresh = {60}/></ParagraphNumber>
+          <ParagraphNumber><Refresh/></ParagraphNumber>
           <ParagraphSeconds>Seconds</ParagraphSeconds>
         </Seconds>
-        <Btn>Continuar Navegando</Btn>
-        <Btn2>Logout</Btn2>
+        <Btn onClick = {() => window.open("//www.google.com", "_blank")}>Continuar Navegando</Btn>
+        <Btn2 onClick = {() => navigate("/")}>Logout</Btn2>
       </Footer>
     </ConteinerHome>
   );
 };
 
 export default Home;
+
+function setDateState(arg0: Date) {
+  throw new Error("Function not implemented.");
+}
+
