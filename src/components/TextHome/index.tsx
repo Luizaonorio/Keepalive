@@ -7,12 +7,25 @@ const TextPrincipal = styled.span`
   align-items: flex-end;
   margin: 0 6.9vw 0 0;
   word-wrap: break-word;
+
 `
 const PrincipalTitle = styled.h1`
   font-weight: 700;
   font-size: 2.25rem;
   color: ${redTextColor};
   word-wrap: break-word;
+
+  @media screen and (max-width: 1070px) {
+    font-size: 1.7rem;
+  }
+
+  @media screen and (max-width: 816px) {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 624px) {
+    font-size: 1.2rem;
+  }
 `
 
 const Title = styled.h2`
@@ -20,12 +33,44 @@ const Title = styled.h2`
   font-size: 4rem;
   color: ${redTextColor};
   word-wrap: break-word;
+
+  @media screen and (max-width: 1070px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (max-width: 816px) {
+    font-size: 2.5rem;
+  }
+
+  @media screen and (max-width: 690px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 560px) {
+    font-size: 1.6rem;
+  }
+
+  @media screen and (max-width: 435px) {
+    font-size: 1.1rem;
+  }
 `
 const Text = styled.p`
   font-weight: 400;
   font-size: 1.5rem;
   color: ${darkTextColor};
   word-wrap: break-word;
+
+  @media screen and (max-width: 1070px) {
+    font-size: 1.3rem;
+  }
+
+  @media screen and (max-width: 585px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 435px) {
+    font-size: 0.875rem;
+  }
 `
 
 export default function TextHome() {

@@ -12,6 +12,7 @@ import Location from "../../../components/pages/Home/index"
   flex-direction: column;
   width: 100vw;
   height: 100vh;
+  min-height: 1080px;
   background-color: ${white};
   background-image: url(${bolaLogoCompasso});
   background-repeat: no-repeat;
@@ -57,14 +58,14 @@ export const Clock = styled.div`
   }
 `
 
-const Time = styled.div`
+const Time = styled.p`
   display: flex;
   height: 85%;
   font-size: 9rem;
   font-weight: 700;
 `
 
-const Data = styled.div`
+const Data = styled.p`
   font-size: 0.875rem;
 `
 
@@ -99,7 +100,8 @@ export const DivWeader = styled.div`
 `
 
 export const IconWeader = styled.img`
-  width: 1.8vw;
+  width: 34px;
+  heigth: 34px;
 `
 
 export const TemperatureNumber = styled.p`
@@ -115,6 +117,9 @@ export const SectionText = styled.div`
 
   @media screen and (max-width:1200px) {
     height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
 `
 
@@ -122,8 +127,8 @@ const DivText = styled.p`
   margin-top: 17vh;
   text-align: right;
 
-  @media screen and (max-width:1200px) {
-    margin-top: 10%;
+  @media screen and (max-width: 1200px) {
+    margin: 0;
   }
 `
 
@@ -140,8 +145,6 @@ export const Footer = styled.div`
     height: 40%;
     flex-direction: column;
     align-items: center;
-    color: black;
-    background: none;
   }
 `
 
@@ -170,12 +173,12 @@ const ParagraphNumber = styled.p`
 `
 
 const ParagraphSeconds = styled.p`
-font-size: 0.875rem;
+  font-size: 0.875rem;
 
-@media screen and (max-width:1200px) {
-  display: flex;
-  align-items: center;
-}
+  @media screen and (max-width:1200px) {
+    display: flex;
+    align-items: center;
+  }
 `
 
 export const SecondsDiv = styled.div`
@@ -185,20 +188,18 @@ export const SecondsDiv = styled.div`
     justify-content: space-between;
     width: 40%;
   }
-
 `
 
 export const TextRefresh = styled.div`
-margin-left: 6.4vw;
-text-align: right;
-margin-top: 2.9vh;
-font-size: 0.875rem;
+  margin-left: 6.4vw;
+  text-align: right;
+  margin-top: 2.9vh;
+  font-size: 0.875rem;
 
-@media screen and (max-width:1200px) {
-  justify-content: center;
-  margin-left: 0;
-}
-
+  @media screen and (max-width:1200px) {
+    justify-content: center;
+    margin-left: 0;
+  }
 `
 
 export const Line = styled.div`
@@ -315,8 +316,6 @@ function Refresh() {
         <Location/>
       </PatterHeader>
       <SectionText>
-        {/* <BallCompass/> */} 
-        {/* <img src={bolaLogoCompasso} alt="Girl in a jacket"></img> */}
         < DivText>
         <TextHome /> 
         </DivText> 

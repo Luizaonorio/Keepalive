@@ -11,6 +11,7 @@ const Container = styled.section`
     display: flex;
     width: 100vw;
     min-height: 100vh;
+    min-heigth: 800px;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 `;
