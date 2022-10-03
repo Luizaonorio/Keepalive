@@ -5,14 +5,13 @@ import { darkTextColor, redTextColor, textColor, white } from "../../../UI/varia
 import TextHome from "../../TextHome/index";
 import bolaLogoCompasso from "../../../assets/bola-LogoCompasso.png"
 import { useNavigate } from "react-router-dom";
-import OpenWeatherMap from "openweathermap-ts";
 import Location from "../../../components/pages/Home/index"
 
  export const ConteinerHome = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   background-color: ${white};
   background-image: url(${bolaLogoCompasso});
   background-repeat: no-repeat;
@@ -20,7 +19,7 @@ import Location from "../../../components/pages/Home/index"
 `;
 
 export const PatterHeader = styled.div`
-  height: 15.5%;
+  height: 15.7%;
   width: 100vw;
   // padding: 2.3vh 2.1vw 0 2.1vw;
   display: flex;
@@ -42,20 +41,17 @@ export const Clock = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  // width: 18.5vw;
   box-sizing: border-box; 
-  // margin-top: 18vh;
 `
 
-const Time = styled.span`
+const Time = styled.p`
   display: flex;
   text-align: center;
   font-size: 9rem;
-  // height: 100px;
   font-weight: 700;
 `
 
-const Data = styled.span`
+const Data = styled.p`
   font-size: 0.875rem;
 `
 
@@ -81,7 +77,7 @@ export const IconWeader = styled.img`
   width: 1.8vw;
 `
 
-export const TemperatureNumber = styled.span`
+export const TemperatureNumber = styled.p`
   font-size: 3rem;
   font-weight: 700;
 `
@@ -95,7 +91,7 @@ export const SectionText = styled.div`
   background-size: 10;
 `
 
-const DivText = styled.span`
+const DivText = styled.p`
   margin-top: 15vh;
   // heigth: 36vw;
 `
@@ -118,18 +114,18 @@ export const Seconds = styled.div`
 
 const ParagraphNumber = styled.p`
   // text-align: center;
-  font-size: 2.5vw;
+  font-size: 3rem;
 `
 
 const ParagraphSeconds = styled.p`
-font-size: 0.7vw;
+font-size: 0.875rem;
 `
 
 export const TextRefresh = styled.div`
 margin-left: 6.4vw;
 text-align: right;
 margin-top: 2.9vh;
-font-size: 0.8vw;
+font-size: 0.875rem;
 `
 
 export const Line = styled.div`
@@ -141,12 +137,11 @@ margin: 1.6vh 0 1.8vh 0;
 export const InfoText = styled.div`
   display: flex;
   margin: 3vh;
-  // heigth: 53vh;
   width: 28.1vw;
 `
 
 const InfoP = styled.p`
-font-size: 0.6vw;
+font-size: 0.75rem;
 text-align: right;
 `
 
@@ -248,10 +243,10 @@ function Refresh() {
         {/* <BallCompass/> */} 
         {/* <img src={bolaLogoCompasso} alt="Girl in a jacket"></img> */}
         < DivText>
-        <TextHome title={TextPrincipal[0].title} text={TextPrincipal[0].text} size={1.8} />
-          <TextHome title={TextPrincipal[1].title} text={TextPrincipal[1].text} size={3.3} />
-          <TextHome title={TextPrincipal[2].title} text={TextPrincipal[2].text} size={3.3} />
-          <TextHome title={TextPrincipal[3].title} text={TextPrincipal[3].text} size={3.3} />  
+        <TextHome title={TextPrincipal[0].title} text={TextPrincipal[0].text} size={2.25} />
+          <TextHome title={TextPrincipal[1].title} text={TextPrincipal[1].text} size={4} />
+          <TextHome title={TextPrincipal[2].title} text={TextPrincipal[2].text} size={4} />
+          <TextHome title={TextPrincipal[3].title} text={TextPrincipal[3].text} size={4} />  
         </DivText> 
       </SectionText>
       <Footer>
@@ -265,7 +260,7 @@ function Refresh() {
           <ParagraphNumber><Refresh/></ParagraphNumber>
           <ParagraphSeconds>Seconds</ParagraphSeconds>
         </Seconds>
-        <Btn onClick = {() => window.open("//www.google.com", "_blank")}>Continuar Navegando</Btn>
+        <Btn onClick = {() => window.open("//www.google.com", "_blank")}>Continuar <br/>Navegando</Btn>
         <Btn2 onClick = {() => navigate("/")}>Logout</Btn2>
       </Footer>
     </ConteinerHome>

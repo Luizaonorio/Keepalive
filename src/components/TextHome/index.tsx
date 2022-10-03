@@ -10,7 +10,7 @@ const TextT = styled.span`
 `
 const Title = styled.h1<{ size: number }>`
   font-weight: 700;
-  font-size: ${({ size }) => size}vw;
+  font-size: ${({ size }) => size}rem;
   color: ${redTextColor};
 `
 const Text = styled.p`
