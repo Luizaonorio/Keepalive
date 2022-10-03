@@ -19,14 +19,14 @@ import Location from "../../../components/pages/Home/index"
 `;
 
 export const PatterHeader = styled.div`
-  height: 15.7%;
+  height: 16.6%;
   width: 100vw;
-  // padding: 2.3vh 2.1vw 0 2.1vw;
   display: flex;
   justify-content: space-between;
 `;
 
 export const LogoCompass = styled.div`
+  margin: 2.3vh 0 0 2.1vw;
   height: 3.9vh;
   width: 7.8vw;
 `
@@ -44,14 +44,14 @@ export const Clock = styled.div`
   box-sizing: border-box; 
 `
 
-const Time = styled.p`
+const Time = styled.div`
   display: flex;
-  text-align: center;
+  height: 85%;
   font-size: 9rem;
   font-weight: 700;
 `
 
-const Data = styled.p`
+const Data = styled.div`
   font-size: 0.875rem;
 `
 
@@ -60,6 +60,7 @@ export const Temperature = styled.div`
   flex-direction: column;
   align-items: flex-end;
   width: 6.3vw;
+  margin: 2.3vh 2.1vw 0 0;
 `
 
 export const Paragraph = styled.p`
@@ -70,7 +71,6 @@ export const DivWeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 1.1vh;
 `
 
 export const IconWeader = styled.img`
@@ -93,7 +93,6 @@ export const SectionText = styled.div`
 
 const DivText = styled.p`
   margin-top: 15vh;
-  // heigth: 36vw;
 `
 
 export const Footer = styled.div`
@@ -113,8 +112,9 @@ export const Seconds = styled.div`
 `
 
 const ParagraphNumber = styled.p`
-  // text-align: center;
-  font-size: 3rem;
+    height: 53%;
+    font-size: 3rem;
+    margin-top: 1vh;
 `
 
 const ParagraphSeconds = styled.p`
