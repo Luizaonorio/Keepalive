@@ -23,12 +23,17 @@ export const PatterHeader = styled.div`
   width: 100vw;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width:1200px) {
+    justify-content: space-evenly;
+    height: 10%;
+  }
 `;
 
 export const LogoCompass = styled.div`
   margin: 2.3vh 0 0 2.1vw;
-  height: 3.9vh;
-  width: 7.8vw;
+  width: 150px;
+  height: 42.75px;
 `
 
 export const Logo = styled.img`
@@ -42,6 +47,10 @@ export const Clock = styled.div`
   justify-content: flex-end;
   align-items: center;
   box-sizing: border-box; 
+
+  @media screen and (max-width:1200px) {
+    display: none;
+  }
 `
 
 const Time = styled.div`
@@ -61,16 +70,32 @@ export const Temperature = styled.div`
   align-items: flex-end;
   width: 6.3vw;
   margin: 2.3vh 2.1vw 0 0;
+
+  @media screen and (max-width:1200px) {
+    background-color: green;
+    flex-direction: row;
+    width: 40%;
+    justify-content: space-between;
+  }
 `
 
 export const Paragraph = styled.p`
   color: ${darkTextColor};
   font-size: 0.875rem;
+  @media screen and (max-width:1200px) {
+    background-color: red;
+    width: 60%;
+  }
 `
 export const DivWeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  @media screen and (max-width:1200px) {
+    background-color: green;
+    justify-content: flex-end;
+  }
 `
 
 export const IconWeader = styled.img`
@@ -84,15 +109,16 @@ export const TemperatureNumber = styled.p`
 
 export const SectionText = styled.div`
   position: relative;
-  height: 75%;
-  display: flex;
-  justify-content: flex-end;
   background-repeat: no-repeat;
   background-size: 10;
+
+  @media screen and (max-width:1200px) {
+    height: 55%;
+  }
 `
 
 const DivText = styled.p`
-  margin-top: 15vh;
+  margin-top: 10%;
 `
 
 export const Footer = styled.div`
@@ -103,6 +129,11 @@ export const Footer = styled.div`
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
   color: ${white};
   z-index: 999;
+
+  @media screen and (max-width:1200px) {
+    height: 40%;
+    flex-direction: column;
+  }
 `
 
 export const Seconds = styled.div`
@@ -115,10 +146,28 @@ const ParagraphNumber = styled.p`
     height: 53%;
     font-size: 3rem;
     margin-top: 1vh;
+
+    @media screen and (max-width:1200px) {
+      background-color: green;
+    }
 `
 
 const ParagraphSeconds = styled.p`
 font-size: 0.875rem;
+
+@media screen and (max-width:1200px) {
+  background-color: blue;
+}
+`
+
+export const SecondsDiv = styled.div`
+  display: flex;
+
+  @media screen and (max-width:1200px) {
+    background-color: red;
+    justify-content: center;
+  }
+
 `
 
 export const TextRefresh = styled.div`
@@ -126,23 +175,42 @@ margin-left: 6.4vw;
 text-align: right;
 margin-top: 2.9vh;
 font-size: 0.875rem;
+
+@media screen and (max-width:1200px) {
+  background-color: pink;
+}
 `
 
 export const Line = styled.div`
 background-color: ${white};
 width: 0.1vw;
 margin: 1.6vh 0 1.8vh 0;
+
+@media screen and (max-width:1200px) {
+  display: none;
+}
 `
 
 export const InfoText = styled.div`
   display: flex;
   margin: 3vh;
   width: 28.1vw;
+
+  @media screen and (max-width:1200px) {
+    background-color: red;
+    width: 80%;
+    justify-content: center;
+  }
 `
 
 const InfoP = styled.p`
 font-size: 0.75rem;
 text-align: right;
+
+@media screen and (max-width:1200px) {
+  background-color: yellow;
+  text-align: center;
+}
 `
 
 export const Btn = styled.button`
@@ -151,6 +219,10 @@ export const Btn = styled.button`
   border: none;
   color: ${redTextColor};
   background: white;
+
+  @media screen and (max-width:1200px) {
+    width: 100%;
+  }
 `
 
 export const Btn2 = styled.button`
@@ -159,6 +231,10 @@ export const Btn2 = styled.button`
   border: none;
   color: ${textColor};
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
+
+  @media screen and (max-width:1200px) {
+    width: 100%;
+  }
 `
 
 const TextPrincipal = [
@@ -255,11 +331,13 @@ function Refresh() {
           </InfoP>
         </InfoText>
         <Line/>
+        <SecondsDiv>
         <TextRefresh>Application <br/>refresh in</TextRefresh>
         <Seconds>
-          <ParagraphNumber><Refresh/></ParagraphNumber>
-          <ParagraphSeconds>Seconds</ParagraphSeconds>
-        </Seconds>
+            <ParagraphNumber><Refresh/></ParagraphNumber>
+            <ParagraphSeconds>Seconds</ParagraphSeconds>
+          </Seconds>
+        </SecondsDiv>        
         <Btn onClick = {() => window.open("//www.google.com", "_blank")}>Continuar <br/>Navegando</Btn>
         <Btn2 onClick = {() => navigate("/")}>Logout</Btn2>
       </Footer>
