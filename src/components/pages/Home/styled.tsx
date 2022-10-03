@@ -16,6 +16,9 @@ import Location from "../../../components/pages/Home/index"
   background-image: url(${bolaLogoCompasso});
   background-repeat: no-repeat;
   background-position: 0 87%;
+
+  @media screen and (max-width:1200px) {
+  }
 `;
 
 export const PatterHeader = styled.div`
@@ -72,10 +75,8 @@ export const Temperature = styled.div`
   margin: 2.3vh 2.1vw 0 0;
 
   @media screen and (max-width:1200px) {
-    background-color: green;
-    flex-direction: row;
     width: 40%;
-    justify-content: space-between;
+    text-align: end;
   }
 `
 
@@ -83,7 +84,6 @@ export const Paragraph = styled.p`
   color: ${darkTextColor};
   font-size: 0.875rem;
   @media screen and (max-width:1200px) {
-    background-color: red;
     width: 60%;
   }
 `
@@ -93,7 +93,6 @@ export const DivWeader = styled.div`
   width: 100%;
 
   @media screen and (max-width:1200px) {
-    background-color: green;
     justify-content: flex-end;
   }
 `
@@ -111,6 +110,7 @@ export const SectionText = styled.div`
   position: relative;
   background-repeat: no-repeat;
   background-size: 10;
+  height: 74.1%;
 
   @media screen and (max-width:1200px) {
     height: 55%;
@@ -118,7 +118,12 @@ export const SectionText = styled.div`
 `
 
 const DivText = styled.p`
-  margin-top: 10%;
+  margin-top: 17vh;
+  text-align: right;
+
+  @media screen and (max-width:1200px) {
+    margin-top: 10%;
+  }
 `
 
 export const Footer = styled.div`
@@ -133,6 +138,9 @@ export const Footer = styled.div`
   @media screen and (max-width:1200px) {
     height: 40%;
     flex-direction: column;
+    align-items: center;
+    color: black;
+    background: none;
   }
 `
 
@@ -140,6 +148,14 @@ export const Seconds = styled.div`
   margin: 0 19.2vw 0 1.7vw;
   text-align: center;
   width: 5vw;
+
+  @media screen and (max-width:1200px) {
+    margin: 0;
+    width: 58%;
+    display: flex;
+    justify-content: space-between;
+  }
+
 `
 
 const ParagraphNumber = styled.p`
@@ -148,7 +164,7 @@ const ParagraphNumber = styled.p`
     margin-top: 1vh;
 
     @media screen and (max-width:1200px) {
-      background-color: green;
+      width: 38%;
     }
 `
 
@@ -156,7 +172,8 @@ const ParagraphSeconds = styled.p`
 font-size: 0.875rem;
 
 @media screen and (max-width:1200px) {
-  background-color: blue;
+  display: flex;
+  align-items: center;
 }
 `
 
@@ -164,8 +181,8 @@ export const SecondsDiv = styled.div`
   display: flex;
 
   @media screen and (max-width:1200px) {
-    background-color: red;
-    justify-content: center;
+    justify-content: space-between;
+    width: 40%;
   }
 
 `
@@ -177,8 +194,10 @@ margin-top: 2.9vh;
 font-size: 0.875rem;
 
 @media screen and (max-width:1200px) {
-  background-color: pink;
+  justify-content: center;
+  margin-left: 0;
 }
+
 `
 
 export const Line = styled.div`
@@ -197,8 +216,7 @@ export const InfoText = styled.div`
   width: 28.1vw;
 
   @media screen and (max-width:1200px) {
-    background-color: red;
-    width: 80%;
+    width: 60%;
     justify-content: center;
   }
 `
@@ -208,7 +226,6 @@ font-size: 0.75rem;
 text-align: right;
 
 @media screen and (max-width:1200px) {
-  background-color: yellow;
   text-align: center;
 }
 `

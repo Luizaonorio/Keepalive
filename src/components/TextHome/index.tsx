@@ -7,16 +7,18 @@ const TextT = styled.span`
   flex-direction: column;
   align-items: flex-end;
   margin: 0 6.9vw 0 0;
+  word-wrap: break-word;
 `
 const Title = styled.h1<{ size: number }>`
   font-weight: 700;
   font-size: ${({ size }) => size}rem;
   color: ${redTextColor};
+  word-wrap: break-word;
 `
 const Text = styled.p`
   font-weight: 400;
   color: ${darkTextColor};
-  font-size: 1.2vw;
+  word-wrap: break-word;
 `
 
 interface IText {
