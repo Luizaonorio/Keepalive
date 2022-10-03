@@ -18,6 +18,7 @@ import Location from "../../../components/pages/Home/index"
   background-position: 0 87%;
 
   @media screen and (max-width:1200px) {
+    background-image: none;
   }
 `;
 
@@ -253,25 +254,6 @@ export const Btn2 = styled.button`
     width: 100%;
   }
 `
-
-const TextPrincipal = [
-  {
-      title: "Our mission is",
-      text: "Nossa missão é"
-  },
-  {
-      title: "to transform the world",
-      text: "transformar o mundo"
-  },
-  {
-      title: "building digital experiences",
-      text: "construindo experiências digitais"
-  },
-  {
-      title: "that enable our client’s growth",
-      text: "que permitam o crescimento dos nossos clientes"
-  }
-]
  
 const Home = () => {
 interface Props {
@@ -336,10 +318,7 @@ function Refresh() {
         {/* <BallCompass/> */} 
         {/* <img src={bolaLogoCompasso} alt="Girl in a jacket"></img> */}
         < DivText>
-        <TextHome title={TextPrincipal[0].title} text={TextPrincipal[0].text} size={2.25} />
-          <TextHome title={TextPrincipal[1].title} text={TextPrincipal[1].text} size={4} />
-          <TextHome title={TextPrincipal[2].title} text={TextPrincipal[2].text} size={4} />
-          <TextHome title={TextPrincipal[3].title} text={TextPrincipal[3].text} size={4} />  
+        <TextHome /> 
         </DivText> 
       </SectionText>
       <Footer>
