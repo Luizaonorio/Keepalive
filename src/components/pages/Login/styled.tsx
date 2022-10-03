@@ -10,15 +10,24 @@ import iconC from "../../../assets/icone-senha.svg";
 const Container = styled.section`
     display: flex;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
-    // box-shadow: 4px 4px 70px rgba(0, 0, 0, 0.25);
     overflow: hidden;
 `;
 
 const LoginContainer = styled.div`
     width: 50vw;
     height: 100vh;
+
+    @media screen and (max-width:1023px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        background-image: url(${logoC});
+        background-repeat: no-repeat;
+        background-position: center 8%;
+        background-size: 15vh;
+      }
 `;
 
 const LoginContent = styled.div`
@@ -26,20 +35,32 @@ const LoginContent = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    margin: 18.3vh 13.4vw 18.2vh 14.9vw ;
+    margin: 18.3vh 13.4vw 18.2vh 14.9vw;
+
+    @media screen and (max-width:1023px) {
+        width: 50%;
+      }
+
+    @media screen and (max-height: 669px) {
+        margin-top: 16vh;
+    }
 `
 
 const StyleH1 = styled.h1`
-    font-size: 3.12vw;
+    font-size: 3.75rem;
     color: #FFFFFF;
     font-weight: 400;
 `
 
 const StyleP = styled.p`
-    font-size: 0.8vw;
     color: ${textColor};
     font-weight: 100;
     padding: 1.6vh 5.2vw 12.5vh 0;
+
+    
+    @media screen and (max-height: 669px) {
+        padding-bottom: 8vh;
+    }
 `
 
 const InputF = styled.form`
@@ -73,12 +94,20 @@ const Icone = styled.img`
     height: 20px;
     margin-top: 3vh;
     transition: 1s;
-    margin-left: ${({saindo}) => saindo ? "17vw" : "20.5vw"}
+    margin-left: ${({saindo}) => saindo ? "17vw" : "20.5vw"};
+    
+    @media screen and (max-width:1023px) {
+        margin-left: ${({saindo}) => saindo ? "39vw" : "47vw"};
+      }
+
+    // @media screen and (max-width: 480px) {
+    //  margin-left: ${({saindo}) => saindo ? "29vw" : "39vw"};
+    // }
 `
 
 const TextLabel = styled.label`
     font-weight: 300;
-    font-size: 30px;
+    font-size: 1.875rem;
     color: #FFFFFF;
 `;
 
@@ -92,7 +121,6 @@ const InvalidText = styled.div`
 const InvalidP = styled.p`
     text-align: center;
     color: ${errorColor};
-    font-size: 0.8vw;
 `
 
 const Btn = styled.button`
@@ -104,6 +132,10 @@ const Btn = styled.button`
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 50px;
     color: #FFFFFF;
+
+    @media screen and (max-height: 669px) {
+        margin-top: 6vh;
+    }
 `;
 
 const LogoContainer = styled.div`
@@ -112,6 +144,10 @@ const LogoContainer = styled.div`
     background-image: url(${logoNote});
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media screen and (max-width:1023px) {
+        display: none;
+      }
 `;
 
 const LogoCompass = styled.img`
