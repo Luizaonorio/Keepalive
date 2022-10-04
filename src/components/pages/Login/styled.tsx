@@ -113,6 +113,7 @@ const Input = styled.input`
 
     @media screen and (max-width: 580px) {
         padding: 18px;
+        width: 100%;
     }
 
     @media screen and (max-width: 400px) {
@@ -140,12 +141,12 @@ const Icone = styled.img`
         margin-left: ${({saindo}) => saindo ? "39vw" : "39vw"};
     }
 
-    @media screen and (max-width: 575px) {
-        margin-left: ${({saindo}) => saindo ? "50vw" : "50vw"};
+    @media screen and (max-width: 580px) {
+        margin-left: ${({saindo}) => saindo ? "55vw" : "55vw"};
     }
 
     @media screen and (max-width: 390px) {
-        margin-left: ${({saindo}) => saindo ? "55vw" : "55vw"};
+        margin-left: ${({saindo}) => saindo ? "59vw" : "59vw"};
     }
 `
 
@@ -193,6 +194,7 @@ const Btn = styled.button`
 
     @media screen and (max-width: 580px) {
         padding: 18px;
+        width: 100%;
     }
 
     @media screen and (max-width: 400px) {
