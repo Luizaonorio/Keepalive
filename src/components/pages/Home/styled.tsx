@@ -70,6 +70,11 @@ export const LogoCompass = styled.div`
   margin: 2.3vh 0 0 2.1vw;
   width: 150px;
   height: 42.75px;
+
+  @media screen and (max-width: 460px) {
+    width: 109px;
+    height: 35.75px;
+  }
 `
 
 export const Logo = styled.img`
@@ -98,7 +103,6 @@ const Time = styled.p`
   @media screen and (max-height: 978px) {
     font-size: 8rem;
   }
-  
 `
 
 const Data = styled.p`
@@ -116,13 +120,21 @@ export const Temperature = styled.div`
     width: 40%;
     text-align: end;
   }
+
+  @media screen and (max-width: 460px) {
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 460px) {
+    padding: 0 4%;
+  }
 `
 
 export const Paragraph = styled.p`
   color: ${darkTextColor};
   font-size: 0.875rem;
   @media screen and (max-width:1200px) {
-    width: 60%;
+    width: 100%;
   }
 `
 export const DivWeader = styled.div`
@@ -138,11 +150,19 @@ export const DivWeader = styled.div`
 export const IconWeader = styled.img`
   width: 34px;
   heigth: 34px;
+
+  @media screen and (max-width: 460px) {
+    width: 26px;
+  }
 `
 
 export const TemperatureNumber = styled.p`
   font-size: 3rem;
   font-weight: 700;
+
+  @media screen and (max-width: 460px) {
+    font-size: 2rem;
+  }
 `
 
 export const SectionText = styled.div`

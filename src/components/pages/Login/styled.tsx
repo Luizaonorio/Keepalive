@@ -14,8 +14,8 @@ const Container = styled.section`
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 
-    @media screen and (max-height: 900px) {
-        min-height: 900px;
+    @media screen and (max-height: 800px) {
+        min-height: 800px;
       }
 `;
 
@@ -129,7 +129,6 @@ const Icone = styled.img`
     position: absolute;
     width: 20px;
     height: 20px;
-    margin-top: 3%;
     transition: 1s;
     margin-left: ${({saindo}) => saindo ? "17vw" : "20.5vw"};
     
