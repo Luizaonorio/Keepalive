@@ -12,7 +12,6 @@ import Location from "../../../components/pages/Home/index"
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  // min-height: 1080px;
   background-color: ${white};
   background-image: url(${bolaLogoCompasso});
   background-repeat: no-repeat;

@@ -10,15 +10,14 @@ import iconC from "../../../assets/icone-senha.svg";
 const Container = styled.section`
     display: flex;
     width: 100vw;
-    // min-height: 100vh;
-    min-height: 450px;
+    height: 100vh;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 `;
 
 const LoginContainer = styled.div`
-    width: 50vw;
-    height: 100vh;
+    width: 50%;
+    height: 100%;
 
     @media screen and (max-width:1023px) {
         display: flex;
@@ -31,19 +30,28 @@ const LoginContainer = styled.div`
       }
 `;
 
+const LoginBack = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+
+`
+
 const LoginContent = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    margin: 18.3vh 13.4vw 18.2vh 14.9vw;
+    width: 43%;
+    // margin: 18.3% 13.4% 18.2% 14.9%;
 
     @media screen and (max-width:1023px) {
         width: 50%;
       }
 
     @media screen and (max-height: 669px) {
-        margin-top: 16vh;
+        margin-top: 16%;
     }
 `
 
@@ -51,16 +59,18 @@ const StyleH1 = styled.h1`
     font-size: 3.75rem;
     color: #FFFFFF;
     font-weight: 400;
+    margin-bottom: 3%;
 `
 
 const StyleP = styled.p`
     color: ${textColor};
     font-weight: 100;
-    padding: 1.6vh 5.2vw 12.5vh 0;
+    width: 80%;
+    // padding: 1.6vh 5.2vw 12.5vh 0;
 
     
     @media screen and (max-height: 669px) {
-        padding-bottom: 8vh;
+        padding-bottom: 8%;
     }
 `
 
@@ -76,12 +86,13 @@ const InputDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 8%;
 `
 
 const Input = styled.input`
     width: 90.6%;
-    height: 5.7vh;
-    margin-top: 3vh;
+    height: 5.7%;
+    // margin-top: 3vh;
     border: 1px solid #FFFFFF;
     background: #26292C;
     border-radius: 50px;
@@ -93,7 +104,7 @@ const Icone = styled.img`
     position: absolute;
     width: 20px;
     height: 20px;
-    margin-top: 3vh;
+    margin-top: 3%;
     transition: 1s;
     margin-left: ${({saindo}) => saindo ? "17vw" : "20.5vw"};
     
@@ -110,13 +121,16 @@ const TextLabel = styled.label`
     font-weight: 300;
     font-size: 1.875rem;
     color: #FFFFFF;
+    margin-top: 33%;
 `;
 
 const InvalidText = styled.div`
-    margin: 2.5vh 0 0 2.3vw;
     display: flex;
-    width: 14.7vw;
-    margin-bottom: -6vh;
+    align-self: center;
+    width: 67.7%;
+    margin-bottom: -6%;
+    align-items: center;
+    justify-content: center;
 `
 
 const InvalidP = styled.p`
@@ -125,9 +139,10 @@ const InvalidP = styled.p`
 `
 
 const Btn = styled.button`
-    margin-top: 10.7vh;
+    margin-top: 25.7%;
     width: 90.6%;
-    height: 6.2vh;
+    height: 5%;
+    padding: 20px;
     border-color: transparent;
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
@@ -135,13 +150,13 @@ const Btn = styled.button`
     color: #FFFFFF;
 
     @media screen and (max-height: 669px) {
-        margin-top: 6vh;
+        margin-top: 6%;
     }
 `;
 
 const LogoContainer = styled.div`
-    width: 50vw;
-    height: 100vh;
+    width: 50%;
+    height: 100%;
     background-image: url(${logoNote});
     background-repeat: no-repeat;
     background-size: cover;
@@ -151,9 +166,13 @@ const LogoContainer = styled.div`
       }
 `;
 
+const LogoCompassDiv = styled.div`
+      display: flex;
+      justify-content: center;
+      margin-top: 3%;
+`;
+
 const LogoCompass = styled.img`
-    margin: 3.2vh 17vw;
-    width: 15.9vw;
     image: url(${logoC});
     z-index: 3;
 `;
@@ -186,30 +205,34 @@ const Login = () => {
     return (
       <Container>
         <LoginContainer>
-            <LoginContent>
-                <StyleH1>Olá,</StyleH1>
-                <StyleP>Para continuar navegando de forma segura, efetue o login na rede.</StyleP>
-                <><TextLabel>Login</TextLabel>
-                 <InputF onSubmit={Valid}>
-                    <InputDiv>
-                        <Input onChange= {event =>setEmail(event.target.value)} ref={usernameref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} 
-                        type="text" 
-                        placeholder="Usúarios"/>
-                        <Icone saindo={email} src={iconP} alt="Logo Compass.Oul"/>
-                    </InputDiv>
-                    <InputDiv>
-                        <Input onChange= {event =>setPassword(event.target.value)} ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}}  
-                        type="password" 
-                        placeholder="Senha"/>
-                        <Icone saindo={password} src={iconC} alt="Logo Compass.Oul"/>
-                    </InputDiv>
-                    { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
-                    <Btn>Continuar</Btn>
-                 </InputF></>
-            </LoginContent>
+            <LoginBack>
+                <LoginContent>
+                    <StyleH1>Olá,</StyleH1>
+                    <StyleP>Para continuar navegando de forma segura, efetue o login na rede.</StyleP>
+                    <><TextLabel>Login</TextLabel>
+                    <InputF onSubmit={Valid}>
+                        <InputDiv>
+                            <Input onChange= {event =>setEmail(event.target.value)} ref={usernameref} style={{borderColor: `${error ? "#E9B425" : "white"}`}} 
+                            type="text" 
+                            placeholder="Usúarios"/>
+                            <Icone saindo={email} src={iconP} alt="Logo Compass.Oul"/>
+                        </InputDiv>
+                        <InputDiv>
+                            <Input onChange= {event =>setPassword(event.target.value)} ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}}  
+                            type="password" 
+                            placeholder="Senha"/>
+                            <Icone saindo={password} src={iconC} alt="Logo Compass.Oul"/>
+                        </InputDiv>
+                        { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
+                        <Btn>Continuar</Btn>
+                    </InputF></>
+                </LoginContent>
+            </LoginBack>
         </LoginContainer>
         <LogoContainer>
-            <LogoCompass src={logoC} alt="Logo Compass.Oul"/>
+            <LogoCompassDiv>
+                <LogoCompass src={logoC} alt="Logo Compass.Oul"/>
+            </LogoCompassDiv>
         </LogoContainer>
       </Container>
     );
