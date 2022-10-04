@@ -10,8 +10,8 @@ import iconC from "../../../assets/icone-senha.svg";
 const Container = styled.section`
     display: flex;
     width: 100vw;
-    min-height: 100vh;
-    min-heigth: 800px;
+    // min-height: 100vh;
+    min-height: 450px;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 `;

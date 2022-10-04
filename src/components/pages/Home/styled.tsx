@@ -18,6 +18,34 @@ import Location from "../../../components/pages/Home/index"
   background-repeat: no-repeat;
   background-position: 0 87%;
 
+  @media screen and (max-width: 1656px) {
+    background-position: -10% 97%;
+  }
+
+  @media screen and (max-width: 1562px) {
+    background-position: -20% 127%;
+  }
+
+  @media screen and (max-width: 1471px) {
+    background-position: -29% 134%;
+  }
+
+  @media screen and (max-width: 1405px) {
+    background-position: -39% 140%;
+  }
+
+  @media screen and (max-width: 1342px) {
+    background-position: -54% 134%;
+  }
+
+  @media screen and (max-width: 1265px) {
+    background-position: -65% 134%;
+  }
+
+  @media screen and (max-width: 1217px) {
+    background-position: -75% 134%;
+  }
+  
   @media screen and (max-width:1200px) {
     background-image: none;
   }
@@ -53,7 +81,7 @@ export const Clock = styled.div`
   align-items: center;
   box-sizing: border-box; 
 
-  @media screen and (max-width:1200px) {
+  @media screen and (max-width: 1200px) {
     display: none;
   }
 `
@@ -123,7 +151,7 @@ export const SectionText = styled.div`
   }
 `
 
-const DivText = styled.p`
+const DivText = styled.div`
   margin-top: 17vh;
   text-align: right;
 
@@ -160,6 +188,18 @@ export const Seconds = styled.div`
     justify-content: space-between;
   }
 
+  @media screen and (max-width: 795px) {
+    width: 64%;
+  }
+
+  @media screen and (max-width: 645px) {
+    width: 61%;
+    // height: 27%;
+  }
+
+  // @media screen and (max-width: 795px) {
+  //   width: 64%;
+  // }
 `
 
 const ParagraphNumber = styled.p`
@@ -170,6 +210,16 @@ const ParagraphNumber = styled.p`
     @media screen and (max-width:1200px) {
       width: 38%;
     }
+
+    @media screen and (max-width: 795px) {
+      width: 50%;
+    }
+
+    @media screen and (max-width: 645px) {
+      width: 59%;
+      font-size: 2rem;
+      margin: 0;
+    }
 `
 
 const ParagraphSeconds = styled.p`
@@ -179,6 +229,10 @@ const ParagraphSeconds = styled.p`
     display: flex;
     align-items: center;
   }
+
+  // @media screen and (max-width: 795px) {
+  //   width: 50%;
+  // }
 `
 
 export const SecondsDiv = styled.div`
@@ -187,6 +241,15 @@ export const SecondsDiv = styled.div`
   @media screen and (max-width:1200px) {
     justify-content: space-between;
     width: 40%;
+  }
+
+  @media screen and (max-width: 645px) {
+    width: 59%;
+    margin: 7% 0;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 80%;
   }
 `
 
@@ -199,6 +262,18 @@ export const TextRefresh = styled.div`
   @media screen and (max-width:1200px) {
     justify-content: center;
     margin-left: 0;
+  }
+
+  @media screen and (max-width: 795px) {
+    margin-right: none;
+  }
+
+  @media screen and (max-width: 645px) {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 355px) {
+    font-size: 0.875rem;
   }
 `
 
