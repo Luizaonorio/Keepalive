@@ -26,6 +26,8 @@ const PrincipalTitle = styled.h1`
 
   @media screen and (max-width: 624px) {
     font-size: 1.2rem;
+    margin-top: 4%;
+    margin-bottom: 2%;
   }
 `
 
@@ -46,7 +48,7 @@ const Title = styled.h2`
 
   @media screen and (max-width: 690px) {
     font-size: 2rem;
-    margin: 6% 0 2.5% 0;
+    margin: 2% 0 0.1% 0;
   }
 
   @media screen and (max-width: 560px) {
@@ -68,7 +70,7 @@ const Text = styled.p`
   }
 
   @media screen and (max-width: 816px) {
-    margin-bottom: 3%;
+    margin-bottom: 2%;
   }
 
   @media screen and (max-width: 585px) {

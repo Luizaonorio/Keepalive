@@ -100,6 +100,7 @@ const InputDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: 8%;
+
 `
 
 const Input = styled.input`
@@ -109,6 +110,18 @@ const Input = styled.input`
     border-radius: 50px;
     padding: 21px;
     color: ${textColor};
+
+    @media screen and (max-width: 580px) {
+        padding: 18px;
+    }
+
+    @media screen and (max-width: 400px) {
+        padding: 16px;
+    }
+
+    @media screen and (max-width: 320px) {
+        padding: 13px;
+    }
 `;
 
 const Icone = styled.img`
@@ -124,16 +137,16 @@ const Icone = styled.img`
       }
 
       @media screen and (max-height: 669px) {
-        margin-left: "20.5vw";
+        margin-left: ${({saindo}) => saindo ? "39vw" : "39vw"};
     }
 
-    @media screen and (max-width: 475px) {
-
+    @media screen and (max-width: 575px) {
+        margin-left: ${({saindo}) => saindo ? "50vw" : "50vw"};
     }
 
-    // @media screen and (max-width: 480px) {
-    //  margin-left: ${({saindo}) => saindo ? "29vw" : "39vw"};
-    // }
+    @media screen and (max-width: 390px) {
+        margin-left: ${({saindo}) => saindo ? "55vw" : "55vw"};
+    }
 `
 
 const TextLabel = styled.label`
@@ -167,7 +180,7 @@ const InvalidP = styled.p`
 const Btn = styled.button`
     margin-top: 25.7%;
     width: 90.6%;
-    height: 67px;
+    padding: 21px;
     border-color: transparent;
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
@@ -176,6 +189,18 @@ const Btn = styled.button`
 
     @media screen and (max-height: 669px) {
         margin-top: 6%;
+    }
+
+    @media screen and (max-width: 580px) {
+        padding: 18px;
+    }
+
+    @media screen and (max-width: 400px) {
+        padding: 16px;
+    }
+
+    @media screen and (max-width: 320px) {
+        padding: 13px;
     }
 `;
 
@@ -206,6 +231,8 @@ const LogoCompassDivLeft = styled.div`
         display: flex;
         align-self: center;
       }
+
+    
 `;
 
 const LogoCompass = styled.img`
@@ -222,6 +249,11 @@ const LogoCompass = styled.img`
         width: 180px;
         height: 36px;
     }
+
+    @media screen and (max-width:1023px), (max-height:767px) {
+        margin-top: 10%;
+        margin-bottom: 8%;
+      }
 `;
 
 
