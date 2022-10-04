@@ -12,7 +12,7 @@ import Location from "../../../components/pages/Home/index"
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  min-height: 1080px;
+  // min-height: 1080px;
   background-color: ${white};
   background-image: url(${bolaLogoCompasso});
   background-repeat: no-repeat;
@@ -49,11 +49,15 @@ import Location from "../../../components/pages/Home/index"
   @media screen and (max-width:1200px) {
     background-image: none;
   }
+
+  @media screen and (max-height: 900px) {
+    min-height: 900px;
+  }
 `;
 
 export const PatterHeader = styled.div`
   height: 16.6%;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -61,7 +65,7 @@ export const PatterHeader = styled.div`
     justify-content: space-evenly;
     height: 10%;
   }
-`;
+`
 
 export const LogoCompass = styled.div`
   margin: 2.3vh 0 0 2.1vw;
@@ -91,6 +95,11 @@ const Time = styled.p`
   height: 85%;
   font-size: 9rem;
   font-weight: 700;
+
+  @media screen and (max-height: 978px) {
+    font-size: 8rem;
+  }
+  
 `
 
 const Data = styled.p`
@@ -101,8 +110,8 @@ export const Temperature = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 6.3vw;
-  margin: 2.3vh 2.1vw 0 0;
+  width: 6.3%;
+  margin: 2.3% 2.1% 0 0;
 
   @media screen and (max-width:1200px) {
     width: 40%;
@@ -152,7 +161,7 @@ export const SectionText = styled.div`
 `
 
 const DivText = styled.div`
-  margin-top: 17vh;
+  margin-top: 10%;
   text-align: right;
 
   @media screen and (max-width: 1200px) {
@@ -163,8 +172,9 @@ const DivText = styled.div`
 export const Footer = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   height: 9.3%;
-  width: 100vw;
+  width: 100%;
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
   color: ${white};
   z-index: 999;
@@ -177,9 +187,8 @@ export const Footer = styled.div`
 `
 
 export const Seconds = styled.div`
-  margin: 0 19.2vw 0 1.7vw;
   text-align: center;
-  width: 5vw;
+  width: 23%;
 
   @media screen and (max-width:1200px) {
     margin: 0;
@@ -205,7 +214,6 @@ export const Seconds = styled.div`
 const ParagraphNumber = styled.p`
     height: 53%;
     font-size: 3rem;
-    margin-top: 1vh;
 
     @media screen and (max-width:1200px) {
       width: 38%;
@@ -229,14 +237,13 @@ const ParagraphSeconds = styled.p`
     display: flex;
     align-items: center;
   }
-
-  // @media screen and (max-width: 795px) {
-  //   width: 50%;
-  // }
 `
 
 export const SecondsDiv = styled.div`
   display: flex;
+  width: 32%;
+  align-items: center;
+  justify-content: center;
 
   @media screen and (max-width:1200px) {
     justify-content: space-between;
@@ -254,9 +261,8 @@ export const SecondsDiv = styled.div`
 `
 
 export const TextRefresh = styled.div`
-  margin-left: 6.4vw;
+  // margin-left: 6.4%;
   text-align: right;
-  margin-top: 2.9vh;
   font-size: 0.875rem;
 
   @media screen and (max-width:1200px) {
@@ -279,8 +285,9 @@ export const TextRefresh = styled.div`
 
 export const Line = styled.div`
 background-color: ${white};
-width: 0.1vw;
-margin: 1.6vh 0 1.8vh 0;
+width: 2px;
+height: 48px;
+margin-left: 1.82%;
 
 @media screen and (max-width:1200px) {
   display: none;
@@ -289,45 +296,49 @@ margin: 1.6vh 0 1.8vh 0;
 
 export const InfoText = styled.div`
   display: flex;
-  margin: 3vh;
-  width: 28.1vw;
+  margin: 1.82%;
+  width: 28.1%;
 
   @media screen and (max-width:1200px) {
     width: 60%;
+    height: 20%;
+    text-align: center;
     justify-content: center;
+  }
+
+  @media screen and (max-width: 440px) {
+    width: 80%;
   }
 `
 
 const InfoP = styled.p`
 font-size: 0.75rem;
 text-align: right;
-
-@media screen and (max-width:1200px) {
-  text-align: center;
-}
 `
 
 export const Btn = styled.button`
-  height: 9.3vh;
-  width: 6.8vw;
+  height: 100%;
+  width: 6.8%;
   border: none;
   color: ${redTextColor};
   background: white;
 
   @media screen and (max-width:1200px) {
     width: 100%;
+    height: 20%;
   }
 `
 
 export const Btn2 = styled.button`
-  height: 9.3vh;
-  width: 6.8vw;
+  height: 100%;
+  width: 6.8%;
   border: none;
   color: ${textColor};
   background: linear-gradient(90.16deg, #33383D 0%, #1C1D20 100%);
 
   @media screen and (max-width:1200px) {
     width: 100%;
+    height: 20%;
   }
 `
  

@@ -5,7 +5,7 @@ const TextPrincipal = styled.span`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0 6.9vw 0 0;
+  margin: 0 6.9% 0 0;
   word-wrap: break-word;
 
 `
