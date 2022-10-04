@@ -13,20 +13,20 @@ const Container = styled.section`
     height: 100vh;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
+
+    @media screen and (max-height: 900px) {
+        min-height: 900px;
+      }
 `;
 
 const LoginContainer = styled.div`
     width: 50%;
     height: 100%;
 
-    @media screen and (max-width:1023px) {
+    @media screen and (max-width: 1023px) {
         display: flex;
         justify-content: center;
         width: 100%;
-        background-image: url(${logoC});
-        background-repeat: no-repeat;
-        background-position: center 8%;
-        background-size: 15vh;
       }
 `;
 
@@ -36,6 +36,17 @@ const LoginBack = styled.div`
     align-items: center;
     height: 90%;
 
+    @media screen and (max-width: 1023px) {
+        width: 55%;
+      }
+     
+    @media screen and (max-width: 575px) {
+        width: 71%;
+    }
+
+    @media screen and (max-width: 390px) {
+        width: 80%;
+    }
 `
 
 const LoginContent = styled.div`
@@ -47,7 +58,7 @@ const LoginContent = styled.div`
     // margin: 18.3% 13.4% 18.2% 14.9%;
 
     @media screen and (max-width:1023px) {
-        width: 50%;
+        width: 90%;
       }
 
     @media screen and (max-height: 669px) {
@@ -66,11 +77,13 @@ const StyleP = styled.p`
     color: ${textColor};
     font-weight: 100;
     width: 80%;
-    // padding: 1.6vh 5.2vw 12.5vh 0;
-
     
     @media screen and (max-height: 669px) {
         padding-bottom: 8%;
+    }
+
+    @media screen and (max-width: 475px) {
+        width: 100%;
     }
 `
 
@@ -91,12 +104,10 @@ const InputDiv = styled.div`
 
 const Input = styled.input`
     width: 90.6%;
-    height: 5.7%;
-    // margin-top: 3vh;
     border: 1px solid #FFFFFF;
     background: #26292C;
     border-radius: 50px;
-    padding: 20px;
+    padding: 21px;
     color: ${textColor};
 `;
 
@@ -111,6 +122,14 @@ const Icone = styled.img`
     @media screen and (max-width:1023px) {
         margin-left: ${({saindo}) => saindo ? "39vw" : "47vw"};
       }
+
+      @media screen and (max-height: 669px) {
+        margin-left: "20.5vw";
+    }
+
+    @media screen and (max-width: 475px) {
+
+    }
 
     // @media screen and (max-width: 480px) {
     //  margin-left: ${({saindo}) => saindo ? "29vw" : "39vw"};
@@ -128,6 +147,7 @@ const InvalidText = styled.div`
     display: flex;
     align-self: center;
     width: 67.7%;
+    margin-right: 11%;
     margin-bottom: -6%;
     align-items: center;
     justify-content: center;
@@ -136,13 +156,18 @@ const InvalidText = styled.div`
 const InvalidP = styled.p`
     text-align: center;
     color: ${errorColor};
+    margin-top: 8%;
+    margin-bottom: -12%;
+
+    @media screen and (max-width: 1023px) {
+        font-size: 0.875rem;
+      }
 `
 
 const Btn = styled.button`
     margin-top: 25.7%;
     width: 90.6%;
-    height: 5%;
-    padding: 20px;
+    height: 67px;
     border-color: transparent;
     background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
@@ -172,9 +197,31 @@ const LogoCompassDiv = styled.div`
       margin-top: 3%;
 `;
 
+const LogoCompassDivLeft = styled.div`
+      display: none;
+      justify-content: center;
+      margin-top: 3%;
+
+      @media screen and (max-width:1023px) {
+        display: flex;
+        align-self: center;
+      }
+`;
+
 const LogoCompass = styled.img`
     image: url(${logoC});
     z-index: 3;
+    margin-bottom: 29%;
+
+    @media screen and (max-width: 570px) {
+        width: 230px;
+        height: 50px;
+    }
+
+    @media screen and (max-width: 315px) {
+        width: 180px;
+        height: 36px;
+    }
 `;
 
 
@@ -207,6 +254,7 @@ const Login = () => {
         <LoginContainer>
             <LoginBack>
                 <LoginContent>
+                    <LogoCompassDivLeft><LogoCompass src={logoC} alt="Logo Compass.Oul"/></LogoCompassDivLeft>
                     <StyleH1>Olá,</StyleH1>
                     <StyleP>Para continuar navegando de forma segura, efetue o login na rede.</StyleP>
                     <><TextLabel>Login</TextLabel>
