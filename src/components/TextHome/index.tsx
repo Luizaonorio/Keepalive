@@ -5,10 +5,10 @@ const TextPrincipal = styled.span`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin: 0 6.9% 0 0;
+  margin: 0 6.9%;
   word-wrap: break-word;
-
 `
+
 const PrincipalTitle = styled.h1`
   font-weight: 700;
   font-size: 2.25rem;
@@ -43,7 +43,6 @@ const Title = styled.h2`
 
   @media screen and (max-width: 816px) {
     font-size: 2.5rem;
-
   }
 
   @media screen and (max-width: 690px) {
@@ -52,11 +51,15 @@ const Title = styled.h2`
   }
 
   @media screen and (max-width: 560px) {
-    font-size: 1.6rem;
+    font-size: 2.2rem;
   }
 
   @media screen and (max-width: 435px) {
-    font-size: 1.1rem;
+    font-size: 2.1rem;
+  }
+
+  @media screen and (max-width: 317px) {
+    font-size: 1.9rem;
   }
 `
 const Text = styled.p`
@@ -78,7 +81,15 @@ const Text = styled.p`
   }
 
   @media screen and (max-width: 435px) {
-    font-size: 0.875rem;
+    font-size: 1.1rem;
+  }
+
+  @media screen and (max-width: 317px) {
+    font-size: 1.3rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 1rem;
   }
 `
 

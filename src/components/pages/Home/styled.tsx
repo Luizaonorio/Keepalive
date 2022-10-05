@@ -68,12 +68,10 @@ export const PatterHeader = styled.div`
 
 export const LogoCompass = styled.div`
   margin: 2.3vh 0 0 2.1vw;
-  width: 150px;
-  height: 42.75px;
+  height: 3rem;
 
-  @media screen and (max-width: 460px) {
-    width: 109px;
-    height: 35.75px;
+  @media screen and (max-width: 440px) {
+    height: 2.1rem;
   }
 `
 

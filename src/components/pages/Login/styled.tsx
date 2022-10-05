@@ -14,10 +14,10 @@ const Container = styled.section`
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 
-    @media screen and (max-height: 800px) {
+    @media screen and (max-height: 800px) and (orientation: landscape) {
         min-height: 800px;
-      }
-`;
+    }
+`
 
 const LoginContainer = styled.div`
     width: 50%;
@@ -27,8 +27,8 @@ const LoginContainer = styled.div`
         display: flex;
         justify-content: center;
         width: 100%;
-      }
-`;
+    }
+`
 
 const LoginBack = styled.div`
     display: flex;
@@ -55,7 +55,6 @@ const LoginContent = styled.div`
     align-items: flex-start;
     flex-direction: column;
     width: 43%;
-    // margin: 18.3% 13.4% 18.2% 14.9%;
 
     @media screen and (max-width:1023px) {
         width: 90%;
@@ -100,7 +99,6 @@ const InputDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-top: 8%;
-
 `
 
 const Input = styled.input`
@@ -110,6 +108,10 @@ const Input = styled.input`
     border-radius: 50px;
     padding: 21px;
     color: ${textColor};
+
+    @media screen and (max-width: 1440px) and (min-width: 1023px) {
+        padding: 13px;
+    }
 
     @media screen and (max-width: 580px) {
         padding: 18px;
@@ -123,7 +125,7 @@ const Input = styled.input`
     @media screen and (max-width: 320px) {
         padding: 13px;
     }
-`;
+`
 
 const Icone = styled.img`
     position: absolute;
@@ -134,9 +136,9 @@ const Icone = styled.img`
     
     @media screen and (max-width:1023px) {
         margin-left: ${({saindo}) => saindo ? "39vw" : "47vw"};
-      }
+    }
 
-      @media screen and (max-height: 669px) {
+    @media screen and (max-height: 669px) {
         margin-left: ${({saindo}) => saindo ? "39vw" : "39vw"};
     }
 
@@ -154,7 +156,7 @@ const TextLabel = styled.label`
     font-size: 1.875rem;
     color: #FFFFFF;
     margin-top: 33%;
-`;
+`
 
 const InvalidText = styled.div`
     display: flex;
@@ -174,7 +176,7 @@ const InvalidP = styled.p`
 
     @media screen and (max-width: 1023px) {
         font-size: 0.875rem;
-      }
+    }
 `
 
 const Btn = styled.button`
@@ -186,6 +188,10 @@ const Btn = styled.button`
     box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.15);
     border-radius: 50px;
     color: #FFFFFF;
+
+    @media screen and (max-width: 1333px) and (min-width: 1023px) {
+        padding: 16px;
+    }
 
     @media screen and (max-height: 669px) {
         margin-top: 6%;
@@ -203,7 +209,7 @@ const Btn = styled.button`
     @media screen and (max-width: 320px) {
         padding: 13px;
     }
-`;
+`
 
 const LogoContainer = styled.div`
     width: 50%;
@@ -214,27 +220,29 @@ const LogoContainer = styled.div`
 
     @media screen and (max-width:1023px) {
         display: none;
-      }
-`;
+    }
+
+    @media screen and (max-height: 1080px) {
+        background-position: 82% 51%;
+    }
+`
 
 const LogoCompassDiv = styled.div`
-      display: flex;
-      justify-content: center;
-      margin-top: 3%;
-`;
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+`
 
 const LogoCompassDivLeft = styled.div`
-      display: none;
-      justify-content: center;
-      margin-top: 3%;
+    display: none;
+    justify-content: center;
+    margin-top: 3%;
 
-      @media screen and (max-width:1023px) {
-        display: flex;
+    @media screen and (max-width:1023px) {
+        isplay: flex;
         align-self: center;
-      }
-
-    
-`;
+    }    
+`
 
 const LogoCompass = styled.img`
     image: url(${logoC});
@@ -254,8 +262,8 @@ const LogoCompass = styled.img`
     @media screen and (max-width:1023px), (max-height:767px) {
         margin-top: 10%;
         margin-bottom: 8%;
-      }
-`;
+    }
+`
 
 
 const Login = () => {
