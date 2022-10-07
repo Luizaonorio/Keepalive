@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import LogoCompassOul from "../../../assets/LogoCompassoBlack.png";
-import { darkTextColor, redTextColor, textColor, white } from "../../../UI/variaveis";
-import TextHome from "../../TextHome/index";
-import bolaLogoCompasso from "../../../assets/bola-LogoCompasso.png"
-import Location from "../../Weather/index";
-import DateHour from "../../Clock/index";
-import Footer from "../../Footer/index";
-import MainHome from "../../TextHome/index";
+import { darkTextColor, redTextColor, textColor, white } from "../../UI/variaveis";
+import bolaLogoCompasso from "../../assets/bola-LogoCompasso.png"
 
  export const ConteinerHome = styled.section`
   display: flex;
@@ -76,10 +71,3 @@ export const LogoCompass = styled.div`
     height: 2.1rem;
   }
 `
-
-export const Logo = styled.img`
-  height: 100%;
-  width: 100%;
-`
-
-

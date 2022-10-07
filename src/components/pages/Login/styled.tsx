@@ -14,8 +14,8 @@ const Container = styled.section`
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 
-    @media screen and (max-height: 800px) and (orientation: landscape) {
-        min-height: 800px;
+    @media screen and (max-height: 1000px) and (orientation: landscape) {
+        min-height: 1000px;
     }
 `
 
@@ -67,7 +67,7 @@ const LoginContent = styled.div`
 
 const StyleH1 = styled.h1`
     font-size: 3.75rem;
-    color: #FFFFFF;
+    color: ${white};
     font-weight: 400;
     margin-bottom: 3%;
 `
@@ -127,7 +127,7 @@ const Input = styled.input`
     }
 `
 
-const Icone = styled.img`
+const Icone = styled.img<IButton>`
     position: absolute;
     width: 20px;
     height: 20px;
@@ -180,7 +180,7 @@ const InvalidP = styled.p`
 `
 
 const Btn = styled.button`
-    margin-top: 25.7%;
+    margin-top: 7.7%;
     width: 90.6%;
     padding: 21px;
     border-color: transparent;
@@ -239,7 +239,7 @@ const LogoCompassDivLeft = styled.div`
     margin-top: 3%;
 
     @media screen and (max-width:1023px) {
-        isplay: flex;
+        display: flex;
         align-self: center;
     }    
 `
@@ -264,6 +264,9 @@ const LogoCompass = styled.img`
         margin-bottom: 8%;
     }
 `
+export interface IButton {
+    saindo?: boolean | undefined;
+}
 
 
 const Login = () => {
@@ -312,6 +315,12 @@ const Login = () => {
                             placeholder="Senha"/>
                             <Icone saindo={password} src={iconC} alt="Logo Compass.Oul"/>
                         </InputDiv>
+                        <InputDiv>
+                            <Input onChange= {event =>setPassword(event.target.value)} ref={passwordref} style={{borderColor: `${error ? "#E9B425" : "white"}`}}  
+                            type="password" 
+                            placeholder="Senha"/>
+                            <Icone saindo={password} src={iconC} alt="Logo Compass.Oul"/>
+                        </InputDiv>
                         { error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
                         <Btn>Continuar</Btn>
                     </InputF></>
@@ -329,6 +338,6 @@ const Login = () => {
   
   export default Login;
 
-function PopUp(): React.MouseEventHandler<HTMLButtonElement> | undefined {
+  function PopUp(): React.MouseEventHandler<HTMLButtonElement> | undefined {
     throw new Error("Function not implemented.");
 }
