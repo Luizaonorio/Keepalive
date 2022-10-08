@@ -126,6 +126,8 @@ export const TextGoLogin = styled.div`
     color: ${white};
 `
 
-export const WordGoLogin = styled.button`
+export const WordGoLogin = styled.span`
     color: ${redTextColor};
+    cursor: pointer;
+    margin-left: 5px;
 `

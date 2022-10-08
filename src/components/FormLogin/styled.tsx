@@ -126,6 +126,8 @@ export const TextGoRegister = styled.div`
     color: ${white};
 `
 
-export const WordGoRegister = styled.button`
+export const WordGoRegister = styled.span`
     color: ${redTextColor};
+    cursor: pointer;
+    margin-left: 5px;
 `
