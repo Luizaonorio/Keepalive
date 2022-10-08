@@ -4,6 +4,7 @@ import iconC from "../../../assets/icone-senha.svg";
 import React, { useRef, useState } from "react";
 import { Container, LogoCompass, LogoCompassLeft, LogoCompassWrapper, LogoContainer, RegistrationBackground, RegistrationContainer, RegistrationContent, StyleH1, StyleText, TextLabel } from "./styled";
 import logoC from "../../assets/Logo-Compasso.png";
+import FormRegister from "../../components/FormRegistration";
 
 export const Register = () => {
 
@@ -14,9 +15,9 @@ export const Register = () => {
                      <RegistrationContent>
                         <LogoCompassLeft><LogoCompass src={logoC} alt="Logo Compass.Oul"/></LogoCompassLeft>
                         <StyleH1>Olá,</StyleH1>
-                        <StyleText>Efetue o preenchimento do formulário abaixo para o cadastro</StyleText>
+                        <StyleText>Efetue o preenchimento do formulário abaixo para o cadastro:</StyleText>
                         <TextLabel>Cadastre-se</TextLabel>
-                        <Register/>
+                        <FormRegister/>
                      </RegistrationContent>
                 </RegistrationBackground>
             </RegistrationContainer>

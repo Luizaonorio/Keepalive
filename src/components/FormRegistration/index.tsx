@@ -34,11 +34,10 @@ const FormRegister = () => {
       let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
       let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){6,}$/i;
       let nameRegex = /(?=^.{2,60}$)^[A-ZÀÁÂĖÈÉÊÌÍÒÓÔÕÙÚÛÇ][a-zàáâãèéêìíóôõùúç]+(?:[ ](?:das?|dos?|de|e|[A-Z][a-z]+))*$/;
-      let lastNameRegex = /(?=^.{2,60}$)^[A-ZÀÁÂĖÈÉÊÌÍÒÓÔÕÙÚÛÇ][a-zàáâãèéêìíóôõùúç]+(?:[ ](?:das?|dos?|de|e|[A-Z][a-z]+))*$/;
 
       if (emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
           setError(false);
-          navigate('/home')
+          navigate('/')
       } else { setError(true);
       }
   }
@@ -50,35 +49,35 @@ const FormRegister = () => {
 
   return (
     <><InputsFormRegister onSubmit={ValidInputs}>
-        <InputWrapped>
-        <Input onChange={event => setEmail(event.target.value)} ref={userLastNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
-          type="text"
-          placeholder="Usúarios" />
-        <IconCheck move={email} src={BsCheck2} alt="Logo Compass.Oul" />
-      </InputWrapped>
-       <InputWrapped>
-        <Input onChange={event => setEmail(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
-          type="text"
-          placeholder="Usúarios" />
-        <IconCheck moveIcon={email} src={BsCheck2} alt="Logo Compass.Oul" />
-      </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setEmail(event.target.value)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Usúarios" />
-        <IconCheck moveIcon={email} src={BsCheck2} alt="Logo Compass.Oul" />
+          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+      </InputWrapped>
+      <InputWrapped>
+        <Input onChange={event => setName(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+          type="text"
+          placeholder="Nome" />
+        <IconCheck moveIcon={name} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+      </InputWrapped>
+        <InputWrapped>
+        <Input onChange={event => setLastName(event.target.value)} ref={userLastNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+          type="text"
+          placeholder="Sobrenome" />
+        <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setPassword(event.target.value)} ref={passwordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="password"
           placeholder="Senha" />
-        <IconCheck moveIcon={password} src={BsCheck2} alt="Logo Compass.Oul" />
+        <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="password"
-          placeholder="Senha" />
-        <IconCheck moveIcon={confirmPassword} src={BsCheck2} alt="Logo Compass.Oul" />
+          placeholder="Confirmar senha" />
+        <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
       </InputWrapped>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonCreate>Criar conta</ButtonCreate>¨
@@ -87,3 +86,5 @@ const FormRegister = () => {
     <TextGoLogin>Já possui um cadastro? Clique <WordGoLogin onClick={GoLogin}>aqui</WordGoLogin></TextGoLogin></>
   )                 
 }
+
+export default FormRegister;

@@ -44,7 +44,7 @@ export const Input = styled.input`
 `
 type IButton = any
 
-export const IconCheck = styled.img<IButton>`
+export const IconCheck = styled.i<IButton>`
     position: absolute;
     width: 20px;
     height: 20px;
