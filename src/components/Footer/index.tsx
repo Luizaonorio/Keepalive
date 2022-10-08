@@ -15,5 +15,4 @@ export default function Footer() {
     <Buttons/>
   </FooterLogin>
   )
-
 }

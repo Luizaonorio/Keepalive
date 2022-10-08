@@ -71,3 +71,8 @@ export const LogoCompass = styled.div`
     height: 2.1rem;
   }
 `
+
+export const Logo = styled.img`
+  height: 100%;
+  width: 100%;
+`
