@@ -46,9 +46,8 @@ type IButton = any
 
 export const IconCheck = styled.i<IButton>`
     position: absolute;
-    width: 20px;
-    height: 20px;
     transition: 1s;
+    color: gray;
     margin-left: ${({moveIcon}) => moveIcon ? "17vw" : "20.5vw"};
     
     @media screen and (max-width:1023px) {

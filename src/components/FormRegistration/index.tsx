@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { errorColor } from "../../UI/variaveis";
 import { BsCheck2 } from "react-icons/bs";
@@ -28,6 +28,7 @@ const FormRegister = () => {
   const confirmPasswordref:any = useRef(null)
 
 
+
   function ValidInputs(e: any) {
       e.preventDefault();  
 
@@ -44,40 +45,40 @@ const FormRegister = () => {
 
   function GoLogin(e: any) {
     e.preventDefault();
-    navigate('/')
+    navigate('/');
   }
 
   return (
     <><InputsFormRegister onSubmit={ValidInputs}>
-      <InputWrapped>
+      <InputWrapped >
         <Input onChange={event => setEmail(event.target.value)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Usúarios" />
-          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setName(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Nome" />
-        <IconCheck moveIcon={name} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+        <IconCheck moveIcon={name} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
         <InputWrapped>
         <Input onChange={event => setLastName(event.target.value)} ref={userLastNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Sobrenome" />
-        <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+        <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
-        <Input onChange={event => setPassword(event.target.value)} ref={passwordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+        <Input onChange={event => setPassword(event.target.value)} ref={passwordref}
           type="password"
           placeholder="Senha" />
-        <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+        <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="password"
           placeholder="Confirmar senha" />
-        <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2/></IconCheck>
+        <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonCreate>Criar conta</ButtonCreate>¨
