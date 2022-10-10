@@ -18,6 +18,23 @@ export const FooterLogin = styled.div`
   }
 `
 
+export const NameUser = styled.div `
+  display: flex;
+  margin: 1.82%;
+  width: 18%;
+
+  @media screen and (max-width:1200px) {
+    width: 60%;
+    height: 20%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media screen and (max-width: 440px) {
+    width: 80%;
+  }
+`
+
 export const InfoText = styled.div`
   display: flex;
   margin: 1.82%;

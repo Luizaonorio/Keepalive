@@ -4,6 +4,8 @@ import { InputF, InputDiv, Input, Icone, InvalidText, InvalidP, ButtonContinue, 
 import { errorColor } from "../../UI/variaveis";
 import iconEmail from "../../assets/icone-perfil.svg";
 import iconPassword from "../../assets/icone-senha.svg";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
+import { auth } from "../../Firebase";
 
 const FormLogin = () => {
 
@@ -27,10 +29,17 @@ const FormLogin = () => {
 
       let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
       let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){6,}$/i;
-      if (emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
+      if (emailRegex.test(email) && passwordRegex.test(password)) {
           setError(false);
-          navigate('/home')
-      } else { setError(true);
+
+          signInWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            navigate('/home')
+          })
+          .catch((error) => {
+            setError(true);
+          });
       }
   }
 
@@ -53,17 +62,12 @@ const FormLogin = () => {
           placeholder="Senha" />
         <Icone move={password} src={iconPassword} alt="Logo Compass.Oul" />
       </InputDiv>
-      <InputDiv>
-        <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
-          type="password"
-          placeholder="Senha" />
-        <Icone move={confirmPassword} src={iconPassword} alt="Logo Compass.Oul" />
-      </InputDiv>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonContinue>Continuar</ButtonContinue>¨
 
     </InputF><TextGoRegister>Caso você não possua um cadastro, clique <WordGoRegister onClick={GoRegister}>aqui</WordGoRegister></TextGoRegister></>
   )                 
-}
+ }
+
 
 export default FormLogin;

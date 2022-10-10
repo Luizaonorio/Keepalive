@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { errorColor } from "../../UI/variaveis";
 import { BsCheck2 } from "react-icons/bs";
 import { ButtonCreate, IconCheck, Input, InputsFormRegister, InputWrapped, InvalidP, InvalidText, TextGoLogin, WordGoLogin } from "./styled";
+import { auth } from "../../Firebase";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const FormRegister = () => {
 
   const [email, setEmail] = useState("");
+  const [emaile, setEmaile] = useState(false);
   const [name, setName] = useState("");
+  const [color, setColor] = useState("orange");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -27,20 +31,35 @@ const FormRegister = () => {
   const passwordref:any = useRef(null)
   const confirmPasswordref:any = useRef(null)
 
-
-
   function ValidInputs(e: any) {
       e.preventDefault();  
 
       let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
       let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){6,}$/i;
-      let nameRegex = /(?=^.{2,60}$)^[A-ZÀÁÂĖÈÉÊÌÍÒÓÔÕÙÚÛÇ][a-zàáâãèéêìíóôõùúç]+(?:[ ](?:das?|dos?|de|e|[A-Z][a-z]+))*$/;
 
       if (emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
           setError(false);
-          navigate('/')
-      } else { setError(true);
-      }
+
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              updateProfile(userCredential.user, {
+                displayName: name
+              })
+              navigate('/')
+            })
+            .catch((error) => {
+              setError(true)
+            });
+          }
+  }
+
+  function validEmail(e: any) {
+    let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
+    setEmail(e.target.value);
+      if (emailRegex.test(email)) {
+        setEmaile(true); 
+        setColor("green")
+      } else { setEmaile(false); }
   }
 
   function GoLogin(e: any) {
@@ -51,10 +70,10 @@ const FormRegister = () => {
   return (
     <><InputsFormRegister onSubmit={ValidInputs}>
       <InputWrapped >
-        <Input onChange={event => setEmail(event.target.value)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+        <Input onChange={(e: any) => validEmail(e)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Usúarios" />
-          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+          <IconCheck moveIcon={email} style={{ color: `${ emaile ? "green" : "#E9B425"}` }} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setName(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
