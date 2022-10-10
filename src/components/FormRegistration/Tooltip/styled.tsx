@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Tooltip = styled.div`
-  display: ${({dye} : any) => dye ? "green" : "orange"};
+export const Tooltip = styled.div<{appear: boolean}>`
+  display: ${({appear} : any) => appear ? "block" : "none"};
   z-index: 5;
   position: absolute;
   width: 90.6%;
@@ -21,6 +21,11 @@ export const Arrow = styled.span`
   right: 50%;
   padding: 5px;
   transform: translateY(6.53553391px) rotate(45deg);
+`
+
+export const Title = styled.h1`
+  font-size: 0.875rem;
+  margin-bottom: 1%; 
 `
 
 export const SpanPassword = styled.span<{ dye: any }>`

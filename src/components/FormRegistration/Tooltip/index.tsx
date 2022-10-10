@@ -1,6 +1,6 @@
-import { Tooltip, SpanPassword, Arrow } from "./styled";
+import { Tooltip, SpanPassword, Arrow, Title } from "./styled";
 
-export default function TooltipValidPassword({password}: any) {
+export default function TooltipValidPassword({password, appear}: any) {
   
   const validation = {
     min: password.length >= 6 ? true : false,
@@ -11,8 +11,9 @@ export default function TooltipValidPassword({password}: any) {
   }
 
   return (
-    <Tooltip>
+    <Tooltip appear={appear}>
       <Arrow/>
+      <Title>Requisitos para senha:</Title>
       <SpanPassword dye={validation.min}>6 caracteres</SpanPassword>
       <SpanPassword dye={validation.special}>1 caracter especial</SpanPassword>
       <SpanPassword dye={validation.num}>1 número</SpanPassword>

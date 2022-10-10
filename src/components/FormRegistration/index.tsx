@@ -17,6 +17,7 @@ const FormRegister = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [appear, setAppear] = useState(false);
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
   const [focus, setFocus] = useState({
@@ -81,14 +82,17 @@ const FormRegister = () => {
         <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
-        <Input onChange= {event => {setPassword(event.target.value)}} ref={passwordref}
+        <Input onChange= {event => {setPassword(event.target.value)}} 
+          onBlur={() => setAppear(false)}
+          onFocus={() => setAppear(true)}
+          ref={passwordref}
           type="password"
           placeholder="Senha" />
         <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
-      <TooltipValidPassword password={password}/>
+      <TooltipValidPassword password={password} appear={appear}/>
       <InputWrapped>
-        <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+        <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}`}}
           type="password"
           placeholder="Confirmar senha" />
         <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
