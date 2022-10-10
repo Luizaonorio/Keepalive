@@ -121,7 +121,8 @@ export const ButtonCreate = styled.button`
 `
 
 export const TextGoLogin = styled.div`
-    display: flex;
+    width: 90.6%;
+    text-align: center;
     color: ${white};
 `
 

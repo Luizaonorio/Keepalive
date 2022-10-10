@@ -4,7 +4,7 @@ import { InputF, InputDiv, Input, Icone, InvalidText, InvalidP, ButtonContinue, 
 import { errorColor } from "../../UI/variaveis";
 import iconEmail from "../../assets/icone-perfil.svg";
 import iconPassword from "../../assets/icone-senha.svg";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword} from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import { auth } from "../../Firebase";
 
 const FormLogin = () => {
@@ -13,6 +13,7 @@ const FormLogin = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<boolean>(false);
+  const [passwordView, setPasswordView] = useState(true);
   const navigate = useNavigate();
   const [focus, setFocus] = useState({
       username: false,
@@ -35,7 +36,12 @@ const FormLogin = () => {
           signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
-            navigate('/home')
+            onAuthStateChanged(auth, (user) => {
+              if (user) {
+                navigate('/home')
+              }
+            });
+
           })
           .catch((error) => {
             setError(true);
@@ -58,14 +64,17 @@ const FormLogin = () => {
       </InputDiv>
       <InputDiv>
         <Input onChange={event => setPassword(event.target.value)} ref={passwordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
-          type="password"
+          type={passwordView ? 'password' : 'text' }
           placeholder="Senha" />
-        <Icone move={password} src={iconPassword} alt="Logo Compass.Oul" />
+        <Icone onClick={() => {
+          setPasswordView(!passwordView);
+          }}
+          move={password} src={iconPassword} alt="Logo Compass.Oul" />
       </InputDiv>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonContinue>Continuar</ButtonContinue>¨
-
-    </InputF><TextGoRegister>Caso você não possua um cadastro, clique <WordGoRegister onClick={GoRegister}>aqui</WordGoRegister></TextGoRegister></>
+    </InputF>
+    <TextGoRegister>Caso você não possua um cadastro, clique <WordGoRegister onClick={GoRegister}>aqui</WordGoRegister></TextGoRegister></>
   )                 
  }
 

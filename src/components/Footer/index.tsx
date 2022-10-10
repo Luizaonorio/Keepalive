@@ -4,7 +4,6 @@ import Buttons from "../Footer/Button";
 import {auth} from "../../Firebase";
 
 export default function Footer() {
-
   return (
     <FooterLogin>
     <NameUser>Olá, {auth.currentUser?.displayName}</NameUser>

@@ -87,7 +87,7 @@ export const TextLabel = styled.label`
     font-weight: 300;
     font-size: 1.875rem;
     color: #FFFFFF;
-    margin-top: 33%;
+    margin-top: 10%;
 `
 
 export const LogoContainer = styled.div`

@@ -122,7 +122,8 @@ export const ButtonContinue = styled.button`
 `
 
 export const TextGoRegister = styled.div`
-    display: flex;
+    width: 90.6%;
+    text-align: center;
     color: ${white};
 `
 

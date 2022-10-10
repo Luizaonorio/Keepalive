@@ -6,6 +6,7 @@ import { ButtonCreate, IconCheck, Input, InputsFormRegister, InputWrapped, Inval
 import { auth } from "../../Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import TooltipValidPassword from "./Tooltip";
+import { Arrow } from "./Tooltip/styled";
 
 const FormRegister = () => {
 
@@ -85,13 +86,13 @@ const FormRegister = () => {
           placeholder="Senha" />
         <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
+      <TooltipValidPassword password={password}/>
       <InputWrapped>
         <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="password"
           placeholder="Confirmar senha" />
         <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
-      <TooltipValidPassword password={password}/>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonCreate>Criar conta</ButtonCreate>¨
     </InputsFormRegister>
