@@ -26,7 +26,7 @@ export class Location extends React.Component {
       lat: lat,
       lon: lon,
       city: data.name,
-      state: data.name,
+      state: data.sys.country,
       temperatureC: Math.round(data.main.temp),
       temperatureF: Math.round(data.main.temp * 1.8 + 32),
       icon: data.weather[0].icon,
@@ -43,12 +43,12 @@ export class Location extends React.Component {
       });
   }
   render() {
-    const { city, temperatureC } = this.state;
+    const { city, state, temperatureC } = this.state;
     if (city) {
       return (
         <>
         <Temperature>
-            <Paragraph>{city} - {city === "Brasília" ? "DF" : "SC"} </Paragraph>
+            <Paragraph>{city} - {state} </Paragraph>
           <DivWeader>
             <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
             <TemperatureNumber>{temperatureC}º</TemperatureNumber>
@@ -62,7 +62,7 @@ export class Location extends React.Component {
 
       return  (
         <Temperature>
-            <Paragraph>{city} -</Paragraph>
+            <Paragraph>{city} - </Paragraph>
           <DivWeader>
             <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
             <TemperatureNumber>{temperatureC}</TemperatureNumber>
