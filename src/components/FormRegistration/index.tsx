@@ -5,13 +5,14 @@ import { BsCheck2 } from "react-icons/bs";
 import { ButtonCreate, IconCheck, Input, InputsFormRegister, InputWrapped, InvalidP, InvalidText, TextGoLogin, WordGoLogin } from "./styled";
 import { auth } from "../../Firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import TooltipValidPassword from "./Tooltip";
 
 const FormRegister = () => {
 
   const [email, setEmail] = useState("");
   const [emaile, setEmaile] = useState(false);
   const [name, setName] = useState("");
-  const [color, setColor] = useState("orange");
+  const [color, setColor] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -53,15 +54,6 @@ const FormRegister = () => {
           }
   }
 
-  function validEmail(e: any) {
-    let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
-    setEmail(e.target.value);
-      if (emailRegex.test(email)) {
-        setEmaile(true); 
-        setColor("green")
-      } else { setEmaile(false); }
-  }
-
   function GoLogin(e: any) {
     e.preventDefault();
     navigate('/');
@@ -70,10 +62,10 @@ const FormRegister = () => {
   return (
     <><InputsFormRegister onSubmit={ValidInputs}>
       <InputWrapped >
-        <Input onChange={(e: any) => validEmail(e)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
+        <Input onChange={event => setEmail(event.target.value)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
-          placeholder="Usúarios" />
-          <IconCheck moveIcon={email} style={{ color: `${ emaile ? "green" : "#E9B425"}` }} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+          placeholder="Email" />
+          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setName(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
@@ -88,7 +80,7 @@ const FormRegister = () => {
         <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <InputWrapped>
-        <Input onChange={event => setPassword(event.target.value)} ref={passwordref}
+        <Input onChange= {event => {setPassword(event.target.value)}} ref={passwordref}
           type="password"
           placeholder="Senha" />
         <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
@@ -99,6 +91,7 @@ const FormRegister = () => {
           placeholder="Confirmar senha" />
         <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
+      <TooltipValidPassword password={password}/>
       {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonCreate>Criar conta</ButtonCreate>¨
     </InputsFormRegister>

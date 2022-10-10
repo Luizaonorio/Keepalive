@@ -53,7 +53,7 @@ const FormLogin = () => {
       <InputDiv>
         <Input onChange={event => setEmail(event.target.value)} ref={usernameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
-          placeholder="Usúarios" />
+          placeholder="Email" />
         <Icone move={email} src={iconEmail} alt="Logo Compass.Oul" />
       </InputDiv>
       <InputDiv>

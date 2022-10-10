@@ -42,7 +42,7 @@ export const Input = styled.input`
         padding: 13px;
     }
 `
-type IButton = any
+type IButton = any;
 
 export const IconCheck = styled.i<IButton>`
     position: absolute;
