@@ -36,16 +36,18 @@ const FormLogin = () => {
           signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
-            onAuthStateChanged(auth, (user) => {
               if (user) {
                 navigate('/home')
+              } else {
+                setError(true);
               }
-            });
-
-          })
+            })
           .catch((error) => {
+            console.log("oii")
             setError(true);
           });
+      } else {
+        setError(true)
       }
   }
 

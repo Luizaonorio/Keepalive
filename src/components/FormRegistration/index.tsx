@@ -53,6 +53,8 @@ const FormRegister = () => {
             .catch((error) => {
               setError(true)
             });
+          } else {
+            setError(true)
           }
   }
 
@@ -86,6 +88,7 @@ const FormRegister = () => {
           onBlur={() => setAppear(false)}
           onFocus={() => setAppear(true)}
           ref={passwordref}
+          style={{ borderColor: `${error ? "#E9B425" : "white"}`}}
           type="password"
           placeholder="Senha" />
         <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
