@@ -62,7 +62,7 @@ export class Location extends React.Component {
 
       return  (
         <Temperature>
-            <Paragraph>{city} - </Paragraph>
+            <Paragraph>{city} - {state} </Paragraph>
           <DivWeader>
             <IconWeader src={LogoWeather} alt="Logo Compass.Oul"/>
             <TemperatureNumber>{temperatureC}</TemperatureNumber>

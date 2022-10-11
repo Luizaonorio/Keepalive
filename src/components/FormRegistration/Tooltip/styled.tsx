@@ -9,8 +9,45 @@ export const Tooltip = styled.div<{appear: boolean}>`
   background: white;
   border-radius: 5px;
   margin-top: 92%;
-  margin-top: 101%;
+
+  @media screen and (max-width: 1780px) {
+    margin-top: 100%;
+}
+
+@media screen and (max-width: 1580px) {
+  margin-top: 110%;
+}
+
+@media screen and (max-width: 1440px) {
+  margin-top: 92%;
+}
+
+@media screen and (max-width: 1300px) {
+  margin-top: 100%;
+}
+
+@media screen and (max-width: 1140px) {
+  margin-top: 113%;
+}
+
+@media screen and (max-width: 1023px) {
+  margin-top: 85%;
+}
+
+@media screen and (max-width: 850px) {
+  margin-top: 95%;
+}
+
+@media screen and (max-width: 750px) {
+  margin-top: 105%;
+}
+
+@media screen and (max-width: 675px) {
+  margin-top: 115%;
+}
 `
+
+
 
 export const Arrow = styled.span`
   display: block;

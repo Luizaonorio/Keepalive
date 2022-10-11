@@ -1,11 +1,17 @@
 import iconP from "../../../assets/icone-perfil.svg";
 import { useNavigate } from "react-router-dom";
 import FormLogin from "../../components/FormLogin";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Container, LoginBack, LoginContainer, LoginContent, LogoCompass, LogoCompassDiv, LogoCompassDivLeft, LogoContainer, StyleH1, StyleP, TextLabel } from "./styled";
 import logoC from "../../assets/Logo-Compasso.png";
+import { auth } from "../../Firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 export const Login = () => {
+    const navigate = useNavigate();
+    useEffect(() => onAuthStateChanged(auth, user =>
+        user && navigate('/home')
+    ), [])
 
     return (
             <Container>

@@ -4,7 +4,7 @@ import { InputF, InputDiv, Input, Icone, InvalidText, InvalidP, ButtonContinue, 
 import { errorColor } from "../../UI/variaveis";
 import iconEmail from "../../assets/icone-perfil.svg";
 import iconPassword from "../../assets/icone-senha.svg";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged} from "firebase/auth";
 import { auth } from "../../Firebase";
 
 const FormLogin = () => {
@@ -36,12 +36,15 @@ const FormLogin = () => {
           signInWithEmailAndPassword(auth, email, password)
           .then((userCredential) => {
             const user = userCredential.user;
+            onAuthStateChanged(auth, (user) => {
               if (user) {
                 navigate('/home')
               } else {
                 setError(true);
               }
-            })
+            });
+
+          })
           .catch((error) => {
             console.log("oii")
             setError(true);

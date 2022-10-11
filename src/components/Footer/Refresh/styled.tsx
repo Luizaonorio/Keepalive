@@ -8,6 +8,7 @@ export const SecondsDiv = styled.div`
 
   @media screen and (max-width:1200px) {
     justify-content: space-between;
+    margin-bottom: 2%;
     width: 40%;
   }
 
@@ -52,6 +53,8 @@ export const Seconds = styled.div`
     margin: 0;
     width: 58%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
   }
 

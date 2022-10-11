@@ -28,6 +28,7 @@ export const NameUser = styled.div `
     height: 20%;
     text-align: center;
     justify-content: center;
+    align-items: center;
   }
 
   @media screen and (max-width: 440px) {

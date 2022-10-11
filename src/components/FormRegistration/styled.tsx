@@ -80,8 +80,8 @@ export const InvalidText = styled.div`
 export const InvalidP = styled.p`
     text-align: center;
     color: ${errorColor};
-    margin-top: 8%;
-    margin-bottom: -12%;
+    margin-top: 6%;
+    margin-bottom: 4%;
 
     @media screen and (max-width: 1023px) {
         font-size: 0.875rem;

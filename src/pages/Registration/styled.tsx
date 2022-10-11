@@ -11,6 +11,10 @@ export const Container = styled.section`
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;
 
+    @media screen and (max-height: 800px) {
+        min-height: 800px;
+    }
+    
     @media screen and (max-height: 1000px) and (orientation: landscape) {
         min-height: 1000px;
     }

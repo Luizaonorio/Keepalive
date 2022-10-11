@@ -20,13 +20,6 @@ const FormRegister = () => {
   const [appear, setAppear] = useState(false);
   const [error, setError] = useState<boolean>(false);
   const navigate = useNavigate();
-  const [focus, setFocus] = useState({
-      username: false,
-      password: false,
-      confirmPassword: false,
-      name: false,
-      lastName: false,
-  });
 
   const userEmailref:any = useRef(null)
   const userNameref:any = useRef(null)
@@ -39,6 +32,7 @@ const FormRegister = () => {
 
       let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
       let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){6,}$/i;
+      let nameRegex = /^[a-zA-Z]{3,15}$/;
 
       if (emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
           setError(false);
@@ -48,9 +42,11 @@ const FormRegister = () => {
               updateProfile(userCredential.user, {
                 displayName: name
               })
+              console.log(userCredential.user)
               navigate('/')
             })
             .catch((error) => {
+              console.log(error.code)
               setError(true)
             });
           } else {
