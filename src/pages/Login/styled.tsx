@@ -5,7 +5,6 @@ import { errorColor, textColor, white } from "../../UI/variaveis";
 
 export const Container = styled.section`
     display: flex;
-    width: 100vw;
     height: 100vh;
     background: linear-gradient(180deg, #33383D 0%, #1C1D20 100%);
     overflow: hidden;

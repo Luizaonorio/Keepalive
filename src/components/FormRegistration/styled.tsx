@@ -45,26 +45,12 @@ export const Input = styled.input`
 type IButton = any;
 
 export const IconCheck = styled.i<IButton>`
+    display: ${({appear} : any) => appear ? "block" : "none"};
     position: absolute;
     transition: 1s;
     color: gray;
-    margin-left: ${({moveIcon}) => moveIcon ? "17vw" : "20.5vw"};
-    
-    @media screen and (max-width:1023px) {
-        margin-left: ${({moveIcon}) => moveIcon ? "39vw" : "47vw"};
-    }
+    margin-left: 390px;
 
-    @media screen and (max-height: 669px) {
-        margin-left: ${({moveIcon}) => moveIcon ? "39vw" : "39vw"};
-    }
-
-    @media screen and (max-width: 580px) {
-        margin-left: ${({moveIcon}) => moveIcon ? "55vw" : "55vw"};
-    }
-
-    @media screen and (max-width: 390px) {
-        margin-left: ${({moveIcon}) => moveIcon ? "59vw" : "59vw"};
-    }
 `
 
 export const InvalidText = styled.div`

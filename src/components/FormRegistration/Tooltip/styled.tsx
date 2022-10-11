@@ -8,42 +8,42 @@ export const Tooltip = styled.div<{appear: boolean}>`
   padding: 2%;
   background: white;
   border-radius: 5px;
-  margin-top: 92%;
+  margin-top: 72%;
 
   @media screen and (max-width: 1780px) {
-    margin-top: 100%;
+    margin-top: 80%;
 }
 
 @media screen and (max-width: 1580px) {
-  margin-top: 110%;
+  margin-top: 78%;
 }
 
 @media screen and (max-width: 1440px) {
-  margin-top: 92%;
+  margin-top: 72%;
 }
 
 @media screen and (max-width: 1300px) {
-  margin-top: 100%;
+  margin-top: 77%;
 }
 
 @media screen and (max-width: 1140px) {
-  margin-top: 113%;
+  margin-top: 90%;
 }
 
 @media screen and (max-width: 1023px) {
-  margin-top: 85%;
+  margin-top: 67%;
 }
 
 @media screen and (max-width: 850px) {
-  margin-top: 95%;
+  margin-top: 78%;
 }
 
 @media screen and (max-width: 750px) {
-  margin-top: 105%;
+  margin-top: 70%;
 }
 
 @media screen and (max-width: 675px) {
-  margin-top: 115%;
+  margin-top: 90%;
 }
 `
 

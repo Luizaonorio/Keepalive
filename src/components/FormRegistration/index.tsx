@@ -10,11 +10,18 @@ import { Arrow } from "./Tooltip/styled";
 
 const FormRegister = () => {
 
+//   const [errorPlace, setErrorPlace] = useState({
+//     name: false,
+//     lastName: false,
+//     email: false,
+//     password: false,
+//     confirmPassword: false
+// })
+
   const [email, setEmail] = useState("");
   const [emaile, setEmaile] = useState(false);
   const [name, setName] = useState("");
   const [color, setColor] = useState("");
-  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [appear, setAppear] = useState(false);
@@ -32,9 +39,9 @@ const FormRegister = () => {
 
       let emailRegex = /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/;
       let passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){6,}$/i;
-      let nameRegex = /^[a-zA-Z]{3,15}$/;
+      let nameRegex = /[A-Z][a-z]* [A-Z][a-z]*/;
 
-      if (emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
+      if ( nameRegex.test(name) && emailRegex.test(email) && passwordRegex.test(password) && password == confirmPassword) {
           setError(false);
 
             createUserWithEmailAndPassword(auth, email, password)
@@ -44,13 +51,16 @@ const FormRegister = () => {
               })
               console.log(userCredential.user)
               navigate('/')
+              console.log("oi")
             })
             .catch((error) => {
               console.log(error.code)
               setError(true)
+              console.log("ola")
             });
           } else {
             setError(true)
+            console.log("error")
           }
   }
 
@@ -65,19 +75,13 @@ const FormRegister = () => {
         <Input onChange={event => setEmail(event.target.value)} ref={userEmailref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Email" />
-          <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+          {/* <IconCheck moveIcon={email} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck> */}
       </InputWrapped>
       <InputWrapped>
         <Input onChange={event => setName(event.target.value)} ref={userNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
           type="text"
           placeholder="Nome" />
-        <IconCheck moveIcon={name} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
-      </InputWrapped>
-        <InputWrapped>
-        <Input onChange={event => setLastName(event.target.value)} ref={userLastNameref} style={{ borderColor: `${error ? "#E9B425" : "white"}` }}
-          type="text"
-          placeholder="Sobrenome" />
-        <IconCheck moveIcon={lastName} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+        {/* <IconCheck moveIcon={name} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck> */}
       </InputWrapped>
       <InputWrapped>
         <Input onChange= {event => {setPassword(event.target.value)}} 
@@ -87,16 +91,16 @@ const FormRegister = () => {
           style={{ borderColor: `${error ? "#E9B425" : "white"}`}}
           type="password"
           placeholder="Senha" />
-        <IconCheck moveIcon={password} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+        <IconCheck alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
       <TooltipValidPassword password={password} appear={appear}/>
       <InputWrapped>
         <Input onChange={event => setConfirmPassword(event.target.value)} ref={confirmPasswordref} style={{ borderColor: `${error ? "#E9B425" : "white"}`}}
           type="password"
           placeholder="Confirmar senha" />
-        <IconCheck moveIcon={confirmPassword} alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
+        <IconCheck alt="Icone de check desabilitado"><BsCheck2 /></IconCheck>
       </InputWrapped>
-      {error ? <InvalidText><InvalidP>Ops, usuário ou senha inválidos. Tente novamente!</InvalidP></InvalidText> : ""}
+      {error ? <InvalidText><InvalidP>Ops, erro ao cadastrar. Tente novamente!</InvalidP></InvalidText> : ""}
       <ButtonCreate>Criar conta</ButtonCreate>¨
     </InputsFormRegister>
 
