@@ -8,10 +8,10 @@ import { auth } from "../../Firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
 export const Login = () => {
-    const navigate = useNavigate();
-    useEffect(() => onAuthStateChanged(auth, user =>
-        user && navigate('/home')
-    ), [])
+    // const navigate = useNavigate();
+    // useEffect(() => onAuthStateChanged(auth, user =>
+    //     user && navigate('/home')
+    // ), [])
 
     return (
             <Container>

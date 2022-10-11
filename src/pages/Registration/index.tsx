@@ -11,9 +11,9 @@ import { auth } from "../../Firebase";
 export const Register = () => {
     const navigate = useNavigate();
     
-    useEffect(() => onAuthStateChanged(auth, user =>
-        user && navigate('/home')
-    ), [])
+    // useEffect(() => onAuthStateChanged(auth, user =>
+    //     user && navigate('/home')
+    // ), [])
 
   return (
           <Container>
